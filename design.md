@@ -27,3 +27,37 @@
 ├── .gitignore           # （配置）需被 Git 忽略的文件（夹）
 ├── package.json         # 项目描述文件
 ```
+
+## 实现
+
+使用 postcss 处理器处理样式，可以更精简的实现样式，比如：
+
+why: 它比libsass快了几乎两倍(并且比Ruby Sass快了28倍)，支持cssnext和CSS Modules，而且可以很随意的扩展其功能
+
+```
+// 支持下一代的 CSS 语法规则 等等
+// 变量
+:root {
+  --color: red;
+}
+div {
+  color: var(--color);
+}
+
+// 支持自定义简写
+size: 52px 32px;
+position: absolute 0 * * 0;
+color: #abccfc #212231;
+font-size: 1.25em 2;
+border: 1px 2px #343434;
+
+// 基础图形
+triangle: 10px top #fff;
+
+// 支持选择器
+@custom-selector :--heading h1, h3, h3, h4, h5, h6;
+
+article :--heading + p {
+  margin-top: 0;
+}
+```
