@@ -1,0 +1,17 @@
+.DS_Store
+.idea
+*.iml
+node_modules/
+dist/
+npm-debug.log
+test/unit/coverage
+test/e2e/reports
+selenium-debug.log
+*.zip
+
+# 项目调整新增，临时忽视
+test/
+config/
+static/
+temp
+examples/
