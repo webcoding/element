@@ -54,6 +54,8 @@ body{
   // 切换 view 时，pc 端由于页面高度，是否有滚动条，整体宽度不一致，会有跳动
   height: 100%;
   overflow-y: scroll;
+  // 处理切换时导致的横向滚动条
+  overflow-x: hidden;
 }
 
 a{
