@@ -7,6 +7,7 @@ module.exports = {
     //   browsers: ['last 3 versions']
     // }),
     // 使用 postcss
+    require('postcss-nesting')({ /* options */ }),
     require('postcss-salad'),
   ]
 }
