@@ -1,29 +1,31 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
 var path = require('path')
 
-// var argv = process.argv.slice(2);
-// console.log('process.argv', argv);
+var argv = process.argv.slice(2);
+console.log('process.argv', argv);
 
-var projectPath = './demo/';
+var projectName = argv[0] || 'demo';
+var projectPath = './'+ projectName +'/';
 
 module.exports = {
   // favicon: 'static/favicon.png',
   // projectName: 'src',
-  filename: 'index.html',
-  template: 'index.tpl',
+  // filename: 'index.html',
+  // template: 'index.tpl',
   // manifest: './manifest.json',
   client: {
     api: './create-api-client.js',
     entry: projectPath + 'client-entry.js',
+    // 相对于 path(即 output.path)
     filename: '../index.html',
-    template: projectPath + 'index.tpl',
+    template: projectPath + 'index.html',
     dist: '/dist',
   },
   server: {
     api: './create-api-server.js',
     entry: projectPath + 'server-entry.js',
-    filename: '../index.html',
-    template: projectPath + 'index.tpl',
+    // filename: '../index.html',
+    // template: projectPath + 'index.tpl',
     dist: '/dist',
   }
 

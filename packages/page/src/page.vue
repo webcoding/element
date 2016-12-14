@@ -30,6 +30,7 @@ export default {
     //   ]
     // },
     classes () {
+      // 是否要让 page 上添加的样式加入到内层上
       // console.log(1111)
       // return [
       //   this.class,

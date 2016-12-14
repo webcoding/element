@@ -19,7 +19,7 @@ Object.keys(filters).forEach(key => {
 // making them available everywhere as `this.$router` and `this.$store`.
 const app = new Vue(Vue.util.extend({
   router,
-  store
+  store,
 }, App))
 
 // expose the app, the router and the store.
