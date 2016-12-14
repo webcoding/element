@@ -1,5 +1,5 @@
 <template>
-  <div class="page">
+  <page>
     <div class="page-header">
       <h3>关于 H5_plus</h3>
     </div>
@@ -38,5 +38,5 @@
         <p>目前实现，建议以 iphone6 为基准参考。而 rem 的基准，建议使用1rem = 20px 或者 16px，但要求所有使用位置，引用函数 px2rem 转px 值为 rem 使用</p>
       </section>
     </div>
-  </div>
+  </page>
 </template>

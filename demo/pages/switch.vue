@@ -1,5 +1,5 @@
 <template>
-  <div class="page">
+  <page>
     <div class="page-header">
       <h3>滑动开关 <small>Switch</small></h3>
       <p></p>
@@ -35,7 +35,7 @@
         </cell>
       </div>
     </div>
-  </div>
+  </page>
 </template>
 
 <script>

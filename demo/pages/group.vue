@@ -1,5 +1,5 @@
 <template>
-  <div class="page">
+  <page>
     <div class="page-header">
       <h3>组别 <small>group</small></h3>
     </div>
@@ -32,5 +32,5 @@
         <cell title="watermelon">🍉</cell>
       </group>
     </group>
-  </div>
+  </page>
 </template>

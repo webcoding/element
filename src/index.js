@@ -1,6 +1,7 @@
 'use strict'
 
 import xTag from '../packages/xtag'
+import Page from '../packages/page'
 import Group from '../packages/group'
 // import Box from '../packages/box'
 // import Group from '../packages/group'
@@ -54,6 +55,7 @@ const install = function (Vue) {
   if (install.installed) return
 
   Vue.component(xTag.name, xTag)
+  Vue.component(Page.name, Page)
   Vue.component(Group.name, Group)
   // Vue.component(Header.name, Header)
   // Vue.component(Button.name, Button)
@@ -107,6 +109,7 @@ module.exports = {
   // Header,
   // Button,
   xTag,
+  Page,
   Group,
   Icon,
   Cell,

@@ -1,10 +1,10 @@
 <template>
   <div id="app">
+    <v-backtop></v-backtop>
     <v-header></v-header>
     <transition :name="transition">
       <router-view class="view"></router-view>
     </transition>
-    <v-backtop></v-backtop>
   </div>
 </template>
 
@@ -52,6 +52,7 @@ body{
   color: #34495e;
 
   // 切换 view 时，pc 端由于页面高度，是否有滚动条，整体宽度不一致，会有跳动
+  height: 100%;
   overflow-y: scroll;
 }
 
@@ -113,13 +114,13 @@ a{
   vertical-align: middle;
 }
 
-.view{
+.page{
   max-width: 800px;
   margin: 0 auto;
   position: relative;
-  width: 100%;
-  position: absolute;
-  transition: all .3s cubic-bezier(.55,0,.1,1);
+  // width: 100%;
+  // position: absolute;
+  // transition: all .3s cubic-bezier(.55,0,.1,1);
 }
 
 .fade-enter-active,

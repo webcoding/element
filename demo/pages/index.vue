@@ -1,12 +1,12 @@
 <template>
-  <div class="page">
+  <page>
     <div class="page-content">
       <div class="text-center">
         <img src="../assets/logo.png" height="200"/>
       </div>
       <hello></hello>
     </div>
-  </div>
+  </page>
 </template>
 
 <script>

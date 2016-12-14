@@ -1,5 +1,5 @@
 <template>
-  <div class="page">
+  <page>
     <div class="page-header">
       <h3>索引列表 <small>index-list</small></h3>
     </div>
@@ -11,7 +11,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </page>
 </template>
 
 <script>

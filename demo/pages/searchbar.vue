@@ -1,10 +1,10 @@
 <template>
-  <div class="page">
+  <page>
     <search-bar autofocus v-model="value" :result="filterResult"></search-bar>
     <div class="page-header">
       <h3>示例页面 <small>SearchBar</small></h3>
     </div>
-  </div>
+  </page>
 </template>
 
 <script>

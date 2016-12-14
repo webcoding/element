@@ -1,5 +1,5 @@
 <template>
-  <div class="page">
+  <page>
     <div class="page-content">
       <h1>网页排版布局 typo.css</h1>
       <p class="small">此排版设计，基于 normalize 对默认属性实现无差异化，再用 reboot 做样式微调，之后用 typography 样式对显示效果做优化处理。</p>
@@ -144,7 +144,7 @@
         </blockquote>
       </div>
     </div>
-  </div>
+  </page>
 </template>
 
 <style scoped>

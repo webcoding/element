@@ -1,5 +1,5 @@
 <template>
-  <div class="page">
+  <page>
     <div class="page-header">Cell 组件</div>
     <div class="group">
       <div class="group-header">未读数红点跟在主题信息后，统一在列表左侧</div>
@@ -60,7 +60,7 @@
       </div>
     </cell> -->
 
-  </div>
+  </page>
 </template>
 
 <script>

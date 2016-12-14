@@ -1,5 +1,5 @@
 <template>
-  <div class="page">
+  <page>
     <router-link class="content-block-title" to="about" tag="div">Welcome To h5Plus@Vue2.x</router-link>
     <div class="group" v-for="group in navs">
       <div class="group-header" v-text="group.title"></div>
@@ -14,7 +14,7 @@
         </cell>
       </div>
     </div>
-  </div>
+  </page>
 </template>
 
 

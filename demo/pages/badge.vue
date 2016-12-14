@@ -1,5 +1,5 @@
 <template>
-  <div class="page">
+  <page>
     <div class="page-header">
       <h3>徽章 <small>badge</small></h3>
     </div>
@@ -56,7 +56,7 @@
         </cell> -->
       </div>
     </div>
-  </div>
+  </page>
 </template>
 
 <script>

@@ -1,5 +1,5 @@
 <template>
-  <div class="page page-icon">
+  <page class="page-icon">
     <group padded>
       <icon type="code">code</icon>
       <icon type="menu" color="green">menu</icon>

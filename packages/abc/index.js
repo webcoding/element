@@ -1,4 +1,4 @@
 
-import abc from './src/abc.vue'
+import Abc from './src/abc.vue'
 
-module.exports = abc
+module.exports = Abc
