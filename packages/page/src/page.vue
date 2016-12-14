@@ -43,6 +43,7 @@ export default {
 <style>
 .transition-box{
   position: absolute;
+  z-index: 0;
   width: 100%;
   transition: all .3s cubic-bezier(.55,0,.1,1);
 }

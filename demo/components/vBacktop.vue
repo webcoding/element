@@ -59,6 +59,7 @@ export default {
 <style>
 .back-to-top{
   position: fixed;
+  z-index: 10;
   right: 15px;
   bottom: 15px;
   display: inline-block;

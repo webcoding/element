@@ -118,7 +118,7 @@ a{
 
 .page{
   max-width: 800px;
-  margin: 0 auto;
+  margin: 0 auto 60px;
   position: relative;
   // width: 100%;
   // position: absolute;
