@@ -35,13 +35,14 @@
 why: 它比libsass快了几乎两倍(并且比Ruby Sass快了28倍)，支持cssnext和CSS Modules，而且可以很随意的扩展其功能
 
 ```
-// 支持下一代的 CSS 语法规则 等等
-// 变量
+// 支持变量、自定义选择器、媒体查询 等下一代的 CSS 语法规则
 :root {
-  --color: red;
+--color: red;
 }
-div {
-  color: var(--color);
+@custom-selector :--heading h1, h3, h3, h4, h5, h6;
+@custom-media --small-viewport (max-width: 30em);
+article :--heading + p {
+  margin-top: 0;
 }
 
 // 支持自定义简写
@@ -54,10 +55,6 @@ border: 1px 2px #343434;
 // 基础图形
 triangle: 10px top #fff;
 
-// 支持选择器
-@custom-selector :--heading h1, h3, h3, h4, h5, h6;
+// 支持直接在 CSS 中自定义 SVG 的属性值，包括它的 fill、stroke、path 等属性。
 
-article :--heading + p {
-  margin-top: 0;
-}
 ```

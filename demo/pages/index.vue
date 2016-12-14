@@ -1,7 +1,11 @@
 <template>
-  <div>
-    <img src="../assets/logo.png" width="100%"/>
-    <hello></hello>
+  <div class="page">
+    <div class="page-content">
+      <div class="text-center">
+        <img src="../assets/logo.png" height="200"/>
+      </div>
+      <hello></hello>
+    </div>
   </div>
 </template>
 

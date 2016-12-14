@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <v-header></v-header>
-    <transition name="fade" mode="out-in">
+    <transition :name="transition">
       <router-view class="view"></router-view>
     </transition>
     <v-backtop></v-backtop>
@@ -16,7 +16,24 @@ export default {
   components: {
     vHeader,
     vBacktop,
-  }
+  },
+  data() {
+    return {
+      transition: "slide-left"
+    }
+  },
+  watch: {
+    "$route"(to, from){
+      this.transition = this.checkDirecition(to.name, from.name) ? "slide-left" : "slide-right";
+      // console.log(this.transition);
+    }
+  },
+  methods: {
+    checkDirecition(to, from) {
+      let map = ["index", "demo", "about", "login", "component"];
+      return (map.indexOf(to) - map.indexOf(from)) > 0;
+    }
+  },
 }
 </script>
 
@@ -31,6 +48,9 @@ body{
   margin: 0;
   padding-top: 55px;
   color: #34495e;
+
+  // 切换 view 时，pc 端由于页面高度，是否有滚动条，整体宽度不一致，会有跳动
+  overflow-y: scroll;
 }
 
 a{
@@ -95,6 +115,9 @@ a{
   max-width: 800px;
   margin: 0 auto;
   position: relative;
+  width: 100%;
+  position: absolute;
+  transition: all .3s cubic-bezier(.55,0,.1,1);
 }
 
 .fade-enter-active,
@@ -107,6 +130,7 @@ a{
   opacity: 0;
 }
 
+//元素过渡效果
 .slide-left-enter,
 .slide-right-leave-active{
   opacity: 0;

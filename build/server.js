@@ -170,7 +170,7 @@ app.get('*', (req, res) => {
 
 // Error: listen EADDRINUSE :::8080
 // 端口被占用
-const port = process.env.PORT || 8001
+const port = process.env.PORT || 8000
 app.listen(port, (err) => {
   if (err) {
     console.log(err)

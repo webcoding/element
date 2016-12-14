@@ -31,6 +31,7 @@ const registerRoute = (config) => {
         routes.push({
           path: `/${page.link}`,
           component: require(`./pages/${page.link}.vue`),
+          name: `demo/${page.link}`,
           meta: {
             title: page.title + ' ' + page.small,
             description: page.description,
@@ -54,12 +55,12 @@ export default new Router({
   // 记住页面的滚动位置，仅 history 模式适用(浏览器返回，系统会自动记住处理)
   scrollBehavior: () => ({ y: 0 }),
   routes: routes.concat([
-    { path: '/index', component: index },
-    { path: '/demo', component: demo },
-    { path: '/about', component: about },
-    { path: '/', redirect: '/index' },
-    { path: '/500', component: error500 },
-    { path: '/*', component: error404 },
+    { path: '/index', name: 'index', component: index },
+    { path: '/demo', name: 'demo', component: demo },
+    { path: '/about', name: 'about', component: about },
+    { path: '/', name: 'root', redirect: '/index' },
+    { path: '/500', name: 'error', component: error500 },
+    { path: '/*', name: 'default', component: error404 },
   ]),
   // routes: [
   //   { path: '/index', component: index },
