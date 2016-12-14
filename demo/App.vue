@@ -24,14 +24,16 @@ export default {
   },
   watch: {
     "$route"(to, from){
+      // 默认 'slide-left';
       this.transition = this.checkDirecition(to.name, from.name) ? "slide-left" : "slide-right";
       // console.log(this.transition);
     }
   },
   methods: {
     checkDirecition(to, from) {
-      let map = ["index", "demo", "about", "login", "component"];
-      return (map.indexOf(to) - map.indexOf(from)) > 0;
+      let map = ["index", "demo", "about", "login", "component"].reverse();
+      // 不存在为 -1，设置默认匹配小于零，对应 slide-left
+      return (map.indexOf(to) - map.indexOf(from)) < 0;
     }
   },
 }
