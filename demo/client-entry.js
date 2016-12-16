@@ -7,7 +7,7 @@ import { app } from './app'
 // store.replaceState(window.__INITIAL_STATE__)
 
 // actually mount to DOM
-app.$mount('#app')
+app.$mount('#root')
 
 // service worker
 if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {

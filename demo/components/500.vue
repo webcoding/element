@@ -1,10 +1,10 @@
 <template>
-  <div class="page">
+  <page>
     <group title="500" padded>
       <p>服务器错误</p>
       <button @click="goBack">点击返回</button>
     </group>
-  </div>
+  </page>
 </template>
 
 <script>

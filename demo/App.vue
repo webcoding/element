@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="root">
     <v-backtop></v-backtop>
     <v-header></v-header>
     <transition :name="transition">
@@ -24,9 +24,11 @@ export default {
   },
   watch: {
     "$route"(to, from){
-      // 默认 'slide-left';
+      // 默认使用 'slide-left' 如果使用的是 back（暂判断不出来），也使用 slide-left
+      // const toDepth = to.path.split('/').length
+      // const fromDepth = from.path.split('/').length
+      // this.transition = toDepth < fromDepth ? 'slide-right' : 'slide-left'
       this.transition = this.checkDirecition(to.name, from.name) ? "slide-left" : "slide-right";
-      // console.log(this.transition);
     }
   },
   methods: {
@@ -41,6 +43,12 @@ export default {
 
 <style lang="sass">
 @import "../src/_style/theme/default/smacss";
+
+html,
+body,
+#root{
+  height: 100%;
+}
 
 body{
   position: relative;
