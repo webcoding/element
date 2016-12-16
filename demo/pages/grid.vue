@@ -2,9 +2,10 @@
   <page>
     <div class="page-header">
       <h3>栅格 <small>grid</small></h3>
-      <p>采用 24 栅格（适用性更好）</p>
+      <p>采用 24 栅格（栅格适用PC端，而24列比12列兼容弹性更好）</p>
     </div>
     <group title="设计理念" padded>
+      <div class="test-foo">@each 测试</div>
       <div class="row">
         <div class="col-xs">
           <div class="box">
@@ -70,16 +71,15 @@
       background: red;
     }
   }
+
+  @use cssnext;
+  @use postcss-nested;
+  @use postcss-for;
+  @use postcss-each;
+  @use postcss-conditionals;
+
  */
-:root {
-  --array: foo, bar, baz;
-}
-/*@each $icon in var(--array){  这个没起效 */
-@each $icon in foo, bar, baz {
-  .icon-$(icon) {
-   background: red;
-  }
-}
+
 
 
 .box,
@@ -135,8 +135,14 @@
   --container-sm: calc(var(--sm-min) + var(--gutter-width));
   --container-md: calc(var(--md-min) + var(--gutter-width));
   --container-lg: calc(var(--lg-min) + var(--gutter-width));
-}
+  --columns: 12;
+  --array: foo, bar, baz;
+  --size: xs, sm, md, lg;
 
+  --from: 0;
+  --to: 12;
+  --step: 1;
+}
 /*@custom-media --xs-viewport only screen and (min-width: 30em);*/
 @custom-media --sm-viewport only screen and (min-width: 48em);
 @custom-media --md-viewport only screen and (min-width: 64em);
@@ -171,27 +177,46 @@
 }
 
 /* http://jonathantneal.github.io/postcss-nesting/ */
-@custom-selector :--columns 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12;
 
+/*@custom-selector :--columns 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12;
 .col {
   &-xs,
   &-xs-:--columns,
   &-xs-offset-0,
   &-xs-offset-:--columns {
-    /*background: red !important; 测试*/
     box-sizing: border-box;
     flex: 0 0 auto;
     padding-right: var(--half-gutter-width, 0.5rem);
     padding-left: var(--half-gutter-width, 0.5rem);
   }
-}
+}*/
+
+/*@each $size in var(--size){
+  .col-$size{
+    @for $i from 0 to var(--columns){
+      &,
+      &-$i,
+      &-offset-0,
+      &-offset-$i {
+        box-sizing: border-box;
+        flex: 0 0 auto;
+        padding-right: var(--half-gutter-width, 0.5rem);
+        padding-left: var(--half-gutter-width, 0.5rem);
+      }
+      &-$i{
+        flex-basis: $(i)/var(--columns);
+        max-width: $(i)/var(--columns);
+      }
+    }
+  }
+}*/
 
 .col-xs {
   flex-grow: 1;
   flex-basis: 0;
   max-width: 100%;
 }
-
+/*
 .col-xs-1 {
   flex-basis: 8.33333333%;
   max-width: 8.33333333%;
@@ -250,7 +275,7 @@
 .col-xs-12 {
   flex-basis: 100%;
   max-width: 100%;
-}
+}*/
 
 .col-xs-offset-0 {
   margin-left: 0;
@@ -346,18 +371,6 @@
 @media (--sm-viewport) {
   .container {
     width: var(--container-sm, 46rem);
-  }
-
-  .col {
-    &-sm,
-    &-sm-:--columns,
-    &-sm-offset-0,
-    &-sm-offset-:--columns {
-      box-sizing: border-box;
-      flex: 0 0 auto;
-      padding-right: var(--half-gutter-width, 0.5rem);
-      padding-left: var(--half-gutter-width, 0.5rem);
-    }
   }
 
   .col-sm {
@@ -523,18 +536,6 @@
     width: var(--container-md, 61rem);
   }
 
-  .col {
-    &-md,
-    &-md-:--columns,
-    &-md-offset-0,
-    &-md-offset-:--columns {
-      box-sizing: border-box;
-      flex: 0 0 auto;
-      padding-right: var(--half-gutter-width, 0.5rem);
-      padding-left: var(--half-gutter-width, 0.5rem);
-    }
-  }
-
   .col-md {
     flex-grow: 1;
     flex-basis: 0;
@@ -696,18 +697,6 @@
 @media (--lg-viewport) {
   .container {
     width: var(--container-lg, 71rem);
-  }
-
-  .col {
-    &-lg,
-    &-lg-:--columns,
-    &-lg-offset-0,
-    &-lg-offset-:--columns {
-      box-sizing: border-box;
-      flex: 0 0 auto;
-      padding-right: var(--half-gutter-width, 0.5rem);
-      padding-left: var(--half-gutter-width, 0.5rem);
-    }
   }
 
   .col-lg {
