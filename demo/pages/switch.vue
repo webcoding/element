@@ -15,14 +15,15 @@
     </group>
 
     <group class="page-part" padded title="支持自定义开关状态描述">
-      <p>支持自适应内容宽度，如果开关描述字符长度不一致（ON/OFF)，请设定宽度属性</p>
+      <p>开关状态描述设置则必须成对出现，如 on/off 开/关 ···/ABC</p>
+      <p>支持自适应内容宽度，如果开关描述字符长度不一致（如：ON/OFF)，需要设定宽度属性，如需特定修改，可挂载 class</p>
       <x-switch v-model="value2" text="on/off" @change="handleChange">
         <label v-text="value2"></label>
       </x-switch>
       <x-switch v-model="value3" width="64" text="ON/OFF" @change="handleChange">
         <label v-text="value3"></label>
       </x-switch>
-      <x-switch class="switch-big" v-model="value4" text="···/ABC" @change="handleChange">
+      <x-switch class="switch-big" v-model="value4" text="ABC/···" @change="handleChange">
         <label v-text="value4"></label>
       </x-switch>
       <x-switch v-model="value5" text="开/关" @change="handleChange">
@@ -42,7 +43,7 @@
 
     <group class="help" padded>
       <h3>还需要什么?</h3>
-      <p>还要支持设定 on/off 或 ···/ABC 字样</p>
+      <p>目前，打包工具输出结果，此页面设置样式，同等级没有覆盖组件内样式，判定为打包样式的顺序有问题，需要处理</p>
     </group>
   </page>
 </template>
@@ -94,7 +95,7 @@ export default {
     .switch-core{
       .switch-text{
         font-size: 12px;
-        transform: scale(0.8);
+        transform: scale(0.9);
       }
     }
   }
