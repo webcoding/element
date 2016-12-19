@@ -97,7 +97,7 @@ var navList = [
         'small': 'switch',
         'desc': '在两个互斥对象进行选择，eg：选择开或关。',
         'type': 'form',
-        'status': 'doing',
+        'status': 'done',
       },
     ],
   },
