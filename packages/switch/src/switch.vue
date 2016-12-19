@@ -146,11 +146,14 @@ $switch-border: #d9d9d9;
       position: absolute;
       top: 0;
       left: 0;
-      transition: all 0.3s;
+      transition: left 0.3s, transform 0.3s;
+      // transition-property: left, transform;
+      // transition-duration: 0.3s, 0.3s;
       border-radius: 15px;
     }
 
     .switch-blank{
+      // 占位符
       opacity: 0;
     }
 
@@ -163,7 +166,6 @@ $switch-border: #d9d9d9;
       height: 30px;
       background-color: $switch-check;
       box-shadow: 0 1px 3px rgba(0, 0, 0, .4);
-      // transform: translateX(100%);
     }
 
     &::before {

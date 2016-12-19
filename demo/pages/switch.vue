@@ -15,6 +15,7 @@
     </group>
 
     <group class="page-part" padded title="支持自定义开关状态描述">
+      <p>支持自适应内容宽度，如果开关描述字符长度不一致（ON/OFF)，请设定宽度属性</p>
       <x-switch v-model="value2" text="on/off" @change="handleChange">
         <label v-text="value2"></label>
       </x-switch>
