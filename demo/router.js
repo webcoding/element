@@ -34,7 +34,7 @@ const registerRoute = (config) => {
           name: `demo/${page.link}`,
           meta: {
             title: page.title + ' ' + page.small,
-            description: page.description,
+            desc: page.desc,
           },
         })
       }

@@ -1,7 +1,7 @@
 <template>
   <label class="switch">
     <input class="switch-input" :disabled="disabled" @change="$emit('change', currentValue)" type="checkbox" v-model="currentValue">
-    <span class="switch-core" :disabled="disabled"></span>
+    <span class="switch-core" :style="style" :disabled="disabled"><span v-if="text" class="switch-text" v-text="currentValue ? texts[1] : texts[0]"></span><span class="switch-blank"></span></span>
     <div class="switch-label"><slot></slot></div>
   </label>
 </template>
@@ -16,7 +16,8 @@
  *   - 只在 List 中使用
  *   - 避免增加额外的文案来描述当前 Switch 的值
  *   - 可调整 Switch 的样式来满足 app 的视觉风格
- * @param {string} [name] - switch的name
+ * @param {string} [name] - switch的 name
+ * @param {string} [text] - switch的 text
  * @param {boolean} [value] - 是否默认选中，绑定值，支持双向绑定
  * @param {boolean} [disabled] - 是否不可修改
  * @param {function} [onChange] - change事件触发的回调函数,参数是 value 的值
@@ -30,8 +31,25 @@ export default {
 
   props: {
     name: String,
+    text: {
+      type: String,
+      default: '', // on/off 开/关 ABC/···　等
+      validator: function (value) {
+        // 开关提示，有值则必须成对
+        return value.length > 0 ? value.indexOf('/') > -1 : true
+      }
+    },
     complex: String,
+    width: {
+      type: String,
+      default: '', // Number
+      validator: function (value) {
+        return value ? value > 0 : true
+      }
+    },
+    checked: Boolean,
     value: {
+      // 这里能使用一个属性 checked 来做么，可以更简化使用
       type: Boolean,
       default: false,
     },
@@ -43,11 +61,17 @@ export default {
 
   data() {
     return {
-      currentValue: this.value
+      currentValue: this.value || this.checked,
+      texts: this.text ? this.text.split('/') : [],
     };
   },
 
   computed: {
+    style () {
+      return [
+        this.width ? {width: this.width + 'px'} : {},
+      ]
+    },
     // classes () {
     //   return [
     //     {
@@ -66,7 +90,7 @@ export default {
     currentValue(val) {
       this.$emit('input', val);
     }
-  }
+  },
 };
 </script>
 
@@ -89,37 +113,63 @@ $switch-border: #d9d9d9;
     }
   }
 
+
+
   .switch-core {
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row-reverse;
     position: relative;
     // size: 52px 32px;
-    width: 52px;
+    min-width: 52px;
     height: 32px;
+    line-height: 30px;
     border: 1px solid $switch-border;
     border-radius: 16px;
     box-sizing: border-box;
     background: $switch-border;
+
+    .switch-text{
+      flex-grow: 1;
+      position: relative;
+      display: block;
+      min-width: 16px;
+      padding: 0 6px 0 4px;
+      font-size: 12px;
+      text-align: center;
+      user-select: none;
+    }
 
     &::after, &::before {
       content: " ";
       position: absolute;
       top: 0;
       left: 0;
-      transition: transform .3s;
+      transition: all 0.3s;
       border-radius: 15px;
     }
 
+    .switch-blank{
+      opacity: 0;
+    }
+
+    .switch-blank,
     &::after {
+      // position: relative;
+      flex-shrink: 0;
       // size: 30px;
       width: 30px;
       height: 30px;
       background-color: $switch-check;
       box-shadow: 0 1px 3px rgba(0, 0, 0, .4);
+      // transform: translateX(100%);
     }
 
     &::before {
+      // z-index: 1;
       // size: 50px 30px;
-      width: 50px;
+      width: 100%;
       height: 30px;
       background-color: #fdfdfd;
     }
@@ -131,14 +181,24 @@ $switch-border: #d9d9d9;
     &:checked + .switch-core {
       border-color: $switch-checked;
       background-color: $switch-checked;
+      flex-direction: row;
+
+      .switch-text{
+        padding: 0 4px 0 6px;
+        text-align: left;
+        color: #fff;
+      }
 
       &::before {
         transform: scale(0);
       }
 
       &::after {
-        transform: translateX(20px);
+        // 完成自适应宽度的开关动画支持
+        left: 100%;
+        transform: translateX(-100%);
       }
+
     }
   }
 
