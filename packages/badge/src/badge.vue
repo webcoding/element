@@ -32,12 +32,12 @@ export default {
       type: String,
       default: 'circle',
       validator(value) {
-        return value ? [
+        return [
           'point',
           'radius',
           'circle',
           'square',
-        ].indexOf(value) > -1 : true;
+        ].indexOf(value) > -1;
       }
     },
     size: {
@@ -63,7 +63,7 @@ export default {
           // 'badge-single': this.text && this.text.length === 1,
         },
         this.type ? `badge-${this.type}` : '',
-        this.shape ? `is-${this.shape}` : '',
+        (!this.isPoint && this.shape) ? `is-${this.shape}` : '',
       ]
     },
   },

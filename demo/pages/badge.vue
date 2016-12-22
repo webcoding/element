@@ -15,30 +15,31 @@
       <badge type="todo">123</badge>
       <badge type="done">new</badge>
       <br/>
-      <badge color="red">自定义背景色</badge>
-      <badge textColor="orange">自定义颜色</badge>
+      <badge color="blue">自定义背景色</badge>
+      <badge textColor="yellow">自定义颜色</badge>
       <h4>特定形状</h4>
-      <badge color="red" shape="point">0</badge>
+      <badge shape="point">0</badge>
       <badge type="todo" shape="square">1</badge>
       <badge type="doing" shape="radius">2</badge>
       <badge type="done" shape="circle">3</badge>
+      <badge is-point>0</badge>
     </group>
     <div class="group">
       <div class="group-header">未读数红点跟在主题信息后，统一在列表左侧</div>
       <div class="list">
         <cell title="标题文字" desc="摘要信息">
           <svg slot="icon" width="40px" height="40px" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="40" height="40" fill="#ebebeb" stroke="#ddd" stroke-width="1"/></svg>
-          <badge slot="badge" color="red" is-point>3</badge>
+          <badge slot="badge" is-point>3</badge>
           <span>icon 是图片</span>
         </cell>
         <cell title="标题文字" desc="摘要信息">
           <svg slot="icon" width="40px" height="40px" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="40" height="40" fill="#ebebeb" stroke="#ddd" stroke-width="1"/></svg>
-          <badge slot="badge" color="red">6</badge>
+          <badge slot="badge">6</badge>
           <span>icon 是图片</span>
         </cell>
         <cell title="标题文字">
           <svg slot="icon" width="40px" height="40px" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="40" height="40" fill="#ebebeb" stroke="#ddd" stroke-width="1"/></svg>
-          <badge slot="badge" color="red">28</badge>
+          <badge slot="badge">28</badge>
           <span>icon 是图片</span>
         </cell>
       </div>
@@ -48,7 +49,7 @@
       <div class="list">
         <cell title="单行列表">
           <span>有新消息</span>
-          <badge color="red" point></badge>
+          <badge is-point></badge>
         </cell>
         <cell title="我的订单">
           <span>未评价</span>

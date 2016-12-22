@@ -74,14 +74,14 @@ export default {
     },
     shape: {
       type: String,
-      default: '',
+      default: 'radius',
       validator(value) {
-        return value ? [
+        return [
           'radius',
           'circle',
           'round',
           'square',
-        ].indexOf(value) > -1 : true;
+        ].indexOf(value) > -1;
       }
     },
     nativeType: {
