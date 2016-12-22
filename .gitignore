@@ -15,3 +15,4 @@ config/
 static/
 temp
 examples/
+assets

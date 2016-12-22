@@ -13,7 +13,10 @@
  * @module packages/badge
  * @desc 徽章
  * @param {string} [type=primary] 组件样式，可选 primary, error, success, warning
- * @param {string} [color] - 传入颜色值
+ * @param {boolean} [isPoint] - 是否为点样式
+ * @param {string} [shape] - 形状圆的还是方的
+ * @param {string} [color] - 传入背景颜色值
+ * @param {string} [textColor] - 传入文本颜色值
  * @param {string} [size=normal] - 尺寸，接受 normal, small, large
  *
  * @example
@@ -42,7 +45,7 @@ export default {
     },
     size: {
       type: String,
-      default: ''
+      default: '',
     },
     text: String,
   },
@@ -69,6 +72,18 @@ export default {
   },
 };
 </script>
-<style lang="css">
+<style lang="sass">
 
+// @import "../../../src/_style/_fn.scss";
+// @import "./style.scss";
+//
+// .doc-content {
+//   .badge {
+//     margin: 5px;
+//   }
+// }
+//
+// .badge-todo  { color: #fff; background: $color-info; }
+// .badge-doing { color: #fff; background: $color-warning;}
+// .badge-done  { color: #fff; background: $color-success; }
 </style>

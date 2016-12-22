@@ -23,6 +23,8 @@
       <badge type="doing" shape="radius">2</badge>
       <badge type="done" shape="circle">3</badge>
       <badge is-point>0</badge>
+      <h4>Size 尺寸大小？</h4>
+      <p>这个暂无必要</p>
     </group>
     <div class="group">
       <div class="group-header">未读数红点跟在主题信息后，统一在列表左侧</div>

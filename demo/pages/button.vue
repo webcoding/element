@@ -11,7 +11,7 @@
       <x-button type="dashed">虚线按钮</x-button>
       <p>主按钮和次按钮可独立使用，空心按钮用于和主按钮组合。需要强引导用主按钮，切记主按钮在同一个操作区域最多出现一次。</p>
 
-      <h4>尺寸</h4>
+      <h4>尺寸大小</h4>
       <x-button size="xs">超小按钮</x-button>
       <x-button size="sm">小按钮</x-button>
       <x-button size="md">默认中按钮</x-button>

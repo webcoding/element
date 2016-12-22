@@ -69,6 +69,7 @@ export default {
           'sm',
           'md',
           'lg',
+          'xl',
         ].indexOf(value) > -1 : true;
       }
     },
