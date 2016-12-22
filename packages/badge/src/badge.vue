@@ -24,17 +24,21 @@ export default {
   name: 'badge',
 
   props: {
-    bg: String,
     color: String,
-    point: Boolean,
+    textColor: String,
+    isPoint: Boolean,
     type: String,
-    radius: {
-      type: Boolean,
-      default: false
-    },
-    round: {
-      type: Boolean,
-      default: true
+    shape: {
+      type: String,
+      default: 'circle',
+      validator(value) {
+        return value ? [
+          'point',
+          'radius',
+          'circle',
+          'square',
+        ].indexOf(value) > -1 : true;
+      }
     },
     size: {
       type: String,
@@ -48,19 +52,18 @@ export default {
   computed: {
     style () {
       return [
-        this.color ? {color: this.color} : {},
-        this.bg ? {backgroundColor: this.bg} : {},
+        this.color ? {backgroundColor: this.color} : {},
+        this.textColor ? {color: this.textColor} : {},
       ]
     },
     classes () {
       return [
         {
-          'badge-point': this.point,
-          'badge-single': this.text && this.text.length === 1,
-          radius: this.radius,
-          round: this.round,
+          'is-point': this.isPoint,
+          // 'badge-single': this.text && this.text.length === 1,
         },
         this.type ? `badge-${this.type}` : '',
+        this.shape ? `is-${this.shape}` : '',
       ]
     },
   },

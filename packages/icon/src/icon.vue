@@ -2,7 +2,7 @@
   <span
     class="iconfont"
     :style="style"
-    :class="className">
+    :class="classes">
     <slot></slot>
   </span>
 </template>
@@ -43,13 +43,13 @@ export default {
         {backgroundColor: this.bg},
       ]
     },
-    className() {
+    classes() {
       return [
         {
           radius: this.radius,
           round: this.round,
         },
-        this.size ? `size-${this.size}` : '',
+        // this.size ? `size-${this.size}` : '',
         this.type ? `icon-${this.type}` : '',
       ]
     },

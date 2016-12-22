@@ -66,6 +66,10 @@ body{
   overflow-x: hidden;
 }
 
+#root {
+  position: relative;
+}
+
 a{
   color: #34495e;
   text-decoration: none;

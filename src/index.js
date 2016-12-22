@@ -3,6 +3,7 @@
 import xTag from '../packages/xtag'
 import Page from '../packages/page'
 import Group from '../packages/group'
+import Button from '../packages/button'
 // import Box from '../packages/box'
 // import Group from '../packages/group'
 import Cell from '../packages/cell'
@@ -16,7 +17,6 @@ import Badge from '../packages/badge'
 // import TreeItem from '../packages/tree-item'
 
 // import Header from '../packages/header'
-// import Button from '../packages/button'
 // import Cell from '../packages/cell'
 // import CellSwipe from '../packages/cell-swipe'
 // import Field from '../packages/field'
@@ -58,7 +58,7 @@ const install = function (Vue) {
   Vue.component(Page.name, Page)
   Vue.component(Group.name, Group)
   // Vue.component(Header.name, Header)
-  // Vue.component(Button.name, Button)
+  Vue.component(Button.name, Button)
   Vue.component(Icon.name, Icon)
   Vue.component(Cell.name, Cell)
   // Vue.component(CellSwipe.name, CellSwipe)
@@ -107,10 +107,10 @@ module.exports = {
   install,
   version: '1.0.5',
   // Header,
-  // Button,
   xTag,
   Page,
   Group,
+  Button,
   Icon,
   Cell,
   // CellSwipe,

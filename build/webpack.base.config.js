@@ -151,6 +151,10 @@ module.exports = {
           objectAssign: 'Object.assign'
         }
       },
+      // {
+      //   test: /\.scss$/,
+      //   loader: "style-loader!sass-loader",
+      // },
       {
         test: /\.css$/,
         loader: "style-loader!css-loader!postcss-loader",
