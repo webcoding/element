@@ -10,7 +10,7 @@
 <script>
 /**
  * icon
- * @module components/icon
+ * @module packages/icon
  * @desc 徽章
  * @param {string} [type=primary] 组件样式，可选 primary, error, success, warning
  * @param {string} [color] - 传入颜色值

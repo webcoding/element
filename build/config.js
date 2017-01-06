@@ -1,10 +1,11 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
 var path = require('path')
 
-var argv = process.argv.slice(2);
-console.log('process.argv', argv);
-
-var projectName = argv[0] || 'demo';
+// var argv = process.argv.slice(2);
+// console.log('process.argv', argv);
+//
+// var projectName = argv[0] || 'demo';
+var projectName = 'demo';
 var projectPath = './'+ projectName +'/';
 
 module.exports = {

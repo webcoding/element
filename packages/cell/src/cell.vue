@@ -49,7 +49,7 @@ function cleanPath(path) {
 
 /**
  * cell
- * @module components/cell
+ * @module packages/cell
  * @desc 单元格
  * @param {string} [to] - 跳转链接
  * @param {string} [icon] - 图标，提供 more, back，或者自定义的图标（传入不带前缀的图标类名，最后拼接成 .mintui-xxx）

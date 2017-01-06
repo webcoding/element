@@ -19,9 +19,8 @@ import Badge from '../packages/badge'
 // import Header from '../packages/header'
 // import Cell from '../packages/cell'
 // import CellSwipe from '../packages/cell-swipe'
-// import Field from '../packages/field'
-// import Badge from '../packages/badge'
 import Switch from '../packages/switch'
+import Field from '../packages/field'
 import SearchBar from '../packages/searchbar'
 // import Spinner from '../packages/spinner'
 // import TabItem from '../packages/tab-item'
@@ -58,13 +57,13 @@ const install = function (Vue) {
   Vue.component(Page.name, Page)
   Vue.component(Group.name, Group)
   // Vue.component(Header.name, Header)
+  Vue.component(Badge.name, Badge)
   Vue.component(Button.name, Button)
   Vue.component(Icon.name, Icon)
+  Vue.component(Switch.name, Switch)
   Vue.component(Cell.name, Cell)
   // Vue.component(CellSwipe.name, CellSwipe)
-  // Vue.component(Field.name, Field)
-  Vue.component(Badge.name, Badge)
-  Vue.component(Switch.name, Switch)
+  Vue.component(Field.name, Field)
   Vue.component(SearchBar.name, SearchBar)
   // Vue.component(Spinner.name, Spinner)
   // Vue.component(TabItem.name, TabItem)
@@ -112,11 +111,11 @@ module.exports = {
   Group,
   Button,
   Icon,
-  Cell,
-  // CellSwipe,
-  // Field,
   Badge,
   Switch,
+  Cell,
+  // CellSwipe,
+  Field,
   SearchBar,
   // Spinner,
   // TabItem,
