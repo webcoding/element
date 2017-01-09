@@ -7,33 +7,34 @@
   <x-tag class="cell" :href="href" :tag="tag">
     <!-- <span class="cell-mask" v-if="isLink"></span> -->
     <div class="cell-wrapper" :class="{ 'cell-link' : isLink }" >
-        <div class="cell-media">
-          <slot name="icon" class="media">
-            <i v-if="icon" class="media iconfont" :class="'icon-' + icon"></i>
-          </slot>
-          <slot name="badge"></slot>
-        </div>
-        <div class="cell-content">
-          <div class="cell-title">
-            <slot name="title">
-              <span class="text" v-text="title"></span>
-              <!-- <span v-if="label" class="cell-label" v-text="label"></span> -->
-            </slot>
-          </div>
-          <div class="cell-desc" v-if="desc">{{desc}}</div>
-        </div>
-        <div class="cell-after">
-          <slot>
-            <span v-text="value"></span>
-          </slot>
-        </div>
-      </div>
-      <!-- <div class="cell-after">
-        <slot>
-          <span v-text="after"></span>
+      <div class="cell-media">
+        <slot name="icon" class="media">
+          <i v-if="icon" class="media iconfont" :class="'icon-' + icon"></i>
         </slot>
-      </div> -->
+        <slot name="badge"></slot>
+      </div>
+      <div class="cell-content">
+        <div class="cell-title">
+          <slot name="title">
+            <span class="text" v-text="title"></span>
+            <!-- <span v-if="label" class="cell-label" v-text="label"></span> -->
+          </slot>
+        </div>
+        <div class="cell-desc" v-if="desc">{{desc}}</div>
+      </div>
+      <div class="cell-after">
+        <slot>
+          <span v-text="value"></span>
+        </slot>
+      </div>
     </div>
+    <!--
+    <div class="cell-after">
+      <slot>
+        <span v-text="after"></span>
+      </slot>
+    </div>
+    -->
     <!-- <i v-if="isLink" class="iconfont icon-arrow-right"></i> -->
   </x-tag>
 </template>

@@ -5,19 +5,30 @@
 
 最关键的几个问题
 
-- 单页面应用也不能完全单页（资源统一集中加载），应该根据情况按需分组加载或自动分组加载
-- 便于调试，开发模式必须要能定位到源码（目前还没做到）
-- 输出支持对不同环境做特定输出，如 dev client server 等
 - 规范书写统一格式，使用 eslint 即可
-- 本地启动服务时，偶尔会遇到端口占用情况，这个需要解决
+- 便于调试，开发模式必须要能定位到源码（目前还没做到）
+- 输出支持对不同环境做特定输出，如 dev prod client server hybird 等
+- 全局调用组件
+- 组件库格式
+- 自动化测试（典型示例）
+- 数据mock 测试以及 ajax
+- debug 工具（切换测试环境、查看 log）
+- title 更新
+
+- 关于 webpack 配置的
+- 动画
 - 解决 PC 及 mobile 自适应排版，路由变换问题
+- 本地启动服务时，偶尔会遇到端口占用情况，这个需要解决
+- 单页面应用也不能完全单页（资源统一集中加载），应该根据情况按需分组加载或自动分组加载
+- nodejs 工具（header 更新）
+- WorkService
 
 根据不同环境以及场景，构建不同的版本输出，参数如下：
 
 ```
 // TODO: 待处理
 // 环境 dev prod test
-// 运行时 client server hybird wechat
+// 运行时 client server hybird wechat/wxapp
 
 npm run dev(对应 client)
 npm run build(仅编译不启动 server)
@@ -32,7 +43,6 @@ npm run test(测试)
 ```
 .
 ├── build/               # 构建监本目录
-├── config/              # 构建配置目录
 ├── demo/                # 示例
 │   ├── assets/            # 放置需要经由 Webpack 处理的静态文件
 │   ├── components/        # 组件目录（COMPONENT）
@@ -46,12 +56,12 @@ npm run test(测试)
 │   ├── index.html         # 静态基页
 ├── node_modules/        # 依赖的 node 工具包目录
 ├── dist/                # build 生成的生产环境下的项目
-├── packages/            # 组件包
 ├── src/                 # 源码目录（开发都在这里进行）
 │   ├── assets/            # 放置需要经由 Webpack 处理的静态文件
 │   ├── mixins/            # 混入
-│   ├── styles/            # 样式
+│   ├── packages/          # 组件包
 │   ├── utils/             # 工具函数
+│   ├── styles/            # 样式
 │   ├── index.js           # 组件汇总
 ├── static/              # 放置无需经由 Webpack 处理的静态文件
 ├── test/                # 测试文件目录

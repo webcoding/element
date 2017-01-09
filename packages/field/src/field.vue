@@ -145,7 +145,6 @@ $warning-color: #ffc107;
 $success-color: #4caf50;
 
 
-
 @component-namespace {
   @component field {
     display: flex;

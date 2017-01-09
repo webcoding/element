@@ -20,13 +20,13 @@ module.exports = {
     app: config.entry,
     vendor: [
       'es6-promise',
-      'firebase/app',
-      'firebase/database',
+      // 'firebase/app',
+      // 'firebase/database',
       'vue',
       'vue-router',
       'vuex',
-      'vuex-router-sync'
-    ]
+      'vuex-router-sync',
+    ],
   },
   // 怎样存储输出结果以及存储到哪里
   output: {
