@@ -14,6 +14,7 @@
 - 数据mock 测试以及 ajax
 - debug 工具（切换测试环境、查看 log）
 - title 更新
+- jsDoc 文档自动生成
 
 - 关于 webpack 配置的
 - 动画
