@@ -1,9 +1,21 @@
 
 # 构建相关
 
-# 可维护性第一原则
+> 可维护性第一原则
 
-最关键的几个问题
+```
+各种代码状态标记
+FIXME, TODO, CHANGED, XXX, IDEA, HACK, NOTE, REVIEW
+Bug当前状态 可能值：
+    OPEN
+    CLOSE  已经修复，最终状态：关闭
+    REOPEN 重新打开
+Bug是否已经解决 可能值：
+    INVALID
+    FIXED（已修复，待确认）
+```
+
+## 最关键的几个问题
 
 - 规范书写统一格式，使用 eslint 即可
 - 便于调试，开发模式必须要能定位到源码（目前还没做到）
