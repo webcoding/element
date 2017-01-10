@@ -42,7 +42,7 @@ export default {
 </script>
 
 <style lang="sass">
-@import "../src/_style/theme/default/smacss";
+@import "../src/tempstyle/theme/default/smacss";
 
 html,
 body,

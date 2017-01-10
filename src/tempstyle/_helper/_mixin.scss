@@ -1,0 +1,256 @@
+
+// @mixin or %placeholder
+// 使用 @mixin name[()] {} 创建一个动态规则 @include name[()];
+// 使用 %placeholder {}    创建一个静态规则 @extend %placeholder;
+// 理论上是要区分，但使用时就存在判断识别了，增加困难性
+// 故规定只选用以上的一种 @mixin ，使用时更简约
+//
+// 以上都是用于混入，而函数用于设置属性值
+// 使用 @function name(){} 返回一个函数值  px2rem(16);
+//
+
+// Clearfix
+// @see http://nicolasgallagher.com/micro-clearfix-hack/
+// 此处理论用 placeholder 更好
+// clearfix
+@mixin clearfix() {
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+
+// Sizing
+// -----------------------------------------------------------------------------
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+// @mixin square($size) {
+//   @include size($size, $size);
+// }
+
+
+// TODO: add scrollableX & scrollableY
+@mixin scrollable() {
+  overflow: auto;
+
+  //允许独立的滚动区域和触摸回弹
+  overflow-scrolling: touch;
+}
+
+// Text
+// -----------------------------------------------------------------------------
+
+// Text overflow
+// Requires inline-block or block for proper styling
+@mixin text-overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// Line clamp
+// http://dropshado.ws/post/1015351370/webkit-line-clamp
+@mixin line-clamp($lines: 2, $line-height: 1.3em) {
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $lines; // number of lines to show
+  overflow: hidden;
+  line-height: $line-height;
+  max-height: $line-height * $lines;
+}
+
+// CSS image replacement
+@mixin text-hide() {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+
+@mixin box-shadow($shadow...) {
+  @if $enable-shadows {
+    box-shadow: $shadow;
+  }
+}
+
+@mixin transition($transition...) {
+  @if $enable-transitions {
+    transition: $transition;
+  }
+}
+
+// Responsive image
+//
+// Keep images from scaling beyond the width of their parents.
+
+@mixin img-fluid($display: block) {
+  display: $display;
+  max-width: 100%; // Part 1: Set a maximum relative to the parent
+  height: auto; // Part 2: Scale the height according to the width, otherwise you get stretching
+}
+
+
+// Single side border-radius
+@mixin border-radius($radius: $border-radius) {
+  @if $enable-rounded {
+    border-radius: $radius;
+  }
+}
+
+
+// Form
+// -----------------------------------------------------------------------------
+
+
+// WebKit-style focus
+// -----------------------------------------------------------------------------
+@mixin tab-focus() {
+  // Default
+  outline: thin dotted;
+  // WebKit
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+
+// Unstyled keeps list items block level, just removes default browser padding and list-style
+@mixin list-unstyled {
+  padding-left: 0;
+  list-style: none;
+}
+
+
+
+
+// Shape
+// -----------------------------------------------------------------------------
+/// CSS Triangle
+/// Creates a CSS triangle, which can be used for dropdown arrows, popup tails, and more. Use this mixin inside a `&::before` or `&::after` selector, to attach the triangle to an existing element.
+///
+/// @param {number} $triangle-size - Width of the triangle.
+/// @param {color} $triangle-color - Color of the triangle.
+/// @param {keyword} $triangle-direction - Direction the triangle points. Can be `top`, `right`, `bottom`, or `left`.
+@mixin css-triangle($triangle-size, $triangle-color, $triangle-direction) {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  border: inset $triangle-size;
+  @if ($triangle-direction == top) {
+    border-color: $triangle-color transparent transparent transparent;
+    border-top-style: solid;
+  }
+  @if ($triangle-direction == bottom) {
+    border-color: transparent transparent $triangle-color transparent;
+    border-bottom-style: solid;
+  }
+  @if ($triangle-direction == left) {
+    border-color: transparent transparent transparent $triangle-color;
+    border-left-style: solid;
+  }
+  @if ($triangle-direction == right) {
+    border-color: transparent $triangle-color transparent transparent;
+    border-right-style: solid;
+  }
+}
+
+
+// Retina borders
+// @see https://gist.github.com/w0rm/c0dd4b7aed71acc03900
+// @see http://dieulot.net/css-retina-hairline
+// -----------------------------------------------------------------------------
+@mixin retina-border-top($color: #c4c4c4) {
+  position: relative;
+
+  &::before {
+    content: "";
+    top: 0;
+    left: 0;
+    position: absolute;
+    display: block;
+    @include size(100%, 1px);
+    background-color: $color;
+  }
+
+  // simulate a 1px border on retina screens
+  @media (-webkit-min-device-pixel-ratio: 2) {
+    &::before {
+      transform: scaleY(0.5);
+      transform-origin: 50% 0;
+    }
+  }
+}
+
+@mixin retina-border-bottom($color: #c4c4c4) {
+  position: relative;
+
+  &::after {
+    content: "";
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    display: block;
+    @include size(100%, 1px);
+    background-color: $color;
+    backface-visibility: hidden;
+  }
+
+  // simulate a 1px border on retina screens
+  @media (-webkit-min-device-pixel-ratio: 2) {
+    &::after {
+      transform: scaleY(0.5);
+      transform-origin: 50% 100%;
+    }
+  }
+}
+
+
+
+@import "./_mixin/index";
+
+
+
+
+// Browser compatibility
+// -----------------------------------------------------------------------------
+
+// FUCK Android UC class namespace
+$legacy-android-uc: 'ua-stupid-uc';
+
+// 在安卓里 flex 里的子元素一定要是 block 元素，如果用行内元素 可以用flex-inline。
+// (不过 flex-inline 兼容也不好，所以全改成块元素就好了)
+// @see https://github.com/amazeui/amazeui-touch/issues/12#issuecomment-169879658
+@mixin fixes-flexbox-for-andriod {
+  display: block;
+}
+
+// flex-basis fallback
+@mixin flex-basis-fallback($width) {
+  @if $legacyFlexBoxSupport {
+    .#{$legacy-android-uc} & {
+      width: $width;
+    }
+  }
+}
+
+// 安卓 UC UA 检测
+// - 解决 NavBar `.navbar-nav-item` 使用 inline-flex 以后宽度异常问题
+// - 测试环境：MI4 / Android 6.0.1 / MIUI 7 6.4.14 开发版
+// - 负面影响: 产生左侧的链接 icon 和 tile 顺序不对（`order` 失效）问题 -> JS 中已调整顺序
+@mixin navbar-item-android-uc-fallback() {
+  @if $legacyFlexBoxSupport {
+    .#{$legacy-android-uc} & {
+      display: inline-block;
+    }
+  }
+}

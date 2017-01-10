@@ -1,0 +1,57 @@
+// Amaze UI Mobile: Group
+// =============================================================================
+
+// Output
+// -----------------------------------------------------------------------------
+.#{$group-prefix} {
+  margin: $spacer 0;
+
+  .#{$group-prefix},
+  .#{$list-prefix} {
+    margin: 0;
+  }
+}
+
+.#{$group-prefix}-header{
+  // min-height: px2rem(44);
+  // line-height: px2rem(44);
+  // padding: 0 $spacer;
+  font-weight: bold;
+}
+
+.#{$group-prefix}-body {
+  display: block;
+  background: $white;
+
+  &.is-padded{
+    padding-left: $spacer;
+    padding-right: $spacer;
+  }
+}
+
+.#{$group-prefix}-header,
+.#{$group-prefix}-footer {
+  font-size: px2rem(14);
+  padding: $spacer / 2 $spacer;
+
+  &:empty {
+    display: none;
+  }
+}
+
+.#{$group-prefix}-index {
+  .#{$group-prefix} {
+    margin-right: $spacer;
+
+    .#{$group-prefix}-body {
+    }
+    .#{$group-prefix}-header {
+      padding: $spacer / 4 $spacer;
+      background-color: $gray-light9;
+    }
+  }
+  .#{$group-prefix}-footer {
+    // background-color: $gray-light9;
+
+  }
+}

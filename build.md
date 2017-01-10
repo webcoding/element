@@ -19,7 +19,7 @@ Bug是否已经解决 可能值：
 
 第一部分
 
-- 规范书写统一格式，使用 eslint 即可
+- 规范书写统一格式，使用 eslint 规范格式
 - 便于调试，开发模式必须要能定位到源码（目前还没做到）
 - 输出支持对不同环境做特定输出，如 dev prod client server hybird 等
 - 全局调用组件
@@ -38,7 +38,7 @@ Bug是否已经解决 可能值：
 - 本地启动服务时，偶尔会遇到端口占用情况，这个需要解决
 - 单页面应用也不能完全单页（资源统一集中加载），应该根据情况按需分组加载或自动分组加载
 - nodejs 工具（header 更新）
-- navigator.serviceWorker 
+- navigator.serviceWorker
 
 
 
