@@ -63,12 +63,13 @@ export default {
 }
 .page-header {
   font-size: 20px;
-  margin: 20px auto;
-  text-align: center;
+  margin: 20px 1rem;
+  // text-align: center;
   display: block;
-  line-height: 1;
+  line-height: 1.5;
 
   p{
+    margin-bottom: 10px;
     font-size: 12px;
   }
 }

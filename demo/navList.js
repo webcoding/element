@@ -38,6 +38,15 @@ var navList = [
       },
       {
         'icon': '',
+        'link': 'flex',
+        'title': '弹性布局',
+        'small': 'flex',
+        'desc': '',
+        'type': 'base',
+        'status': 'doing',
+      },
+      {
+        'icon': '',
         'link': 'group',
         'title': '组别',
         'small': 'group',
