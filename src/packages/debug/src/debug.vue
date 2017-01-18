@@ -1,8 +1,10 @@
 <template>
-  <div></div>
+  <div id="__vdebug"></div>
 </template>
 
 <script>
+// 此组件暂不使用，debug 作为一个工具，应具备独立使用的属性
+// 此处暂使用 vConsole 替代
 // import vConsole from "vconsole"
 /**
  * v-debug

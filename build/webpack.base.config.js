@@ -68,7 +68,7 @@ module.exports = {
     // chunkFilename: 'js/[name].js',
   },
   plugins: [
-    // new vConsolePlugin({ enable: isDebug }),
+    new vConsolePlugin({ enable: isDebug }),
 
     // 全局引入 jquery 等插件，不需要每次使用时 import
     // new webpack.ProvidePlugin({

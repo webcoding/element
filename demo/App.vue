@@ -5,7 +5,7 @@
     <transition :name="transition">
       <router-view class="view"></router-view>
     </transition>
-    <v-debug v-if="isDebug">hello</v-debug>
+    <!--<v-debug v-if="isDebug">hello</v-debug>-->
   </div>
 </template>
 
