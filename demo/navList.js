@@ -20,6 +20,15 @@ var navList = [
     list: [
       {
         'icon': '',
+        'link': 'abc',
+        'title': '模板',
+        'small': 'abc',
+        'desc': '',
+        'type': 'base',
+        'status': 'todo',
+      },
+      {
+        'icon': '',
         'link': 'typography',
         'title': '排版样式',
         'small': 'typography',
@@ -41,6 +50,15 @@ var navList = [
         'link': 'flex',
         'title': '弹性布局',
         'small': 'flex',
+        'desc': '',
+        'type': 'base',
+        'status': 'doing',
+      },
+      {
+        'icon': '',
+        'link': 'webp',
+        'title': '图片优化',
+        'small': 'webp',
         'desc': '',
         'type': 'base',
         'status': 'doing',

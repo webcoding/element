@@ -21,10 +21,10 @@ var clientConfig = Object.assign({}, base, {
   },
   plugins: (base.plugins || []).concat([
     // strip comments in Vue code
-    // 全局环境变量
+    // 全局环境变量，一定要用JSON.stringify()包起来
     new webpack.DefinePlugin({
       // 全局标识 if(__DEV__){ console.log('debug 模式'); }
-      // __DEV__: debug
+      // __DEV__: JSON.stringify(JSON.parse(process.env.DEBUG || 'false')), // 通过环境变量设置
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
       'process.env.VUE_ENV': '"client"',
     }),
@@ -37,22 +37,39 @@ var clientConfig = Object.assign({}, base, {
     // 生成多个 html，使用多个 new HtmlWebpackPlugin
     // http://www.cnblogs.com/haogj/p/5160821.html
     new HtmlWebpackPlugin({
-      // title: '',               // 用来生成页面的 title 元素
-      // favicon: config.favicon,    // 添加特定的 favicon 路径到输出的 HTML 文件中
-      filename: config.filename,  // 默认是 index.html，也可以配置目录路径，相对于 path(即 output.path)
-      // template: 'src/index.template.html',
-      template: config.template,  // 模板文件路径，支持加载器，比如 html!./index.html 也可以是个函数
-      // inject: true,       // true | 'head' | 'body' | false  ,注入所有的资源到特定的 template 或者 templateContent 中，
-                          // 如果设置为 true 或者 body，所有的 javascript 资源将被放置到 body 元素的底部，
-                          // 'head' 将放置到 head 元素中
-      // hash: true | false, 默认值 true, 添加一个唯一的 webpack 编译 hash 到所有包含的脚本和 CSS 文件，对于解除 cache 很有用。
-      // cache: true | false，默认值 true, 仅仅在文件修改之后才会发布文件。
-      // showErrors: true | false, 默认值 true,错误信息会写入到 HTML 页面中
-      // minify: {           // minify: {} | false , 传递 html-minifier 选项给 minify 输出
-      //   removeComments: true,     //移除HTML中的注释
-      //   collapseWhitespace: true, //删除空白符与换行符
-      // }
-    })
+      filename: config.filename,
+      template: config.template,
+      // chunks: ['common'],
+      hash: true
+    }),
+    // new HtmlWebpackPlugin({filename: 'zt.html', template: 'tpl/zt.html', chunks: ['common', 'zt'], hash: true}),
+    // new HtmlWebpackPlugin({
+    //   // title: '',               // 用来生成页面的 title 元素
+    //   // favicon: config.favicon,    // 添加特定的 favicon 路径到输出的 HTML 文件中
+    //   filename: config.filename,  // 默认是 index.html，也可以配置目录路径，相对于 path(即 output.path)
+    //   // template: 'src/index.template.html',
+    //   template: config.template,  // 模板文件路径，支持加载器，比如 html!./index.html 也可以是个函数
+    //   // inject: true,       // true | 'head' | 'body' | false  ,注入所有的资源到特定的 template 或者 templateContent 中，
+    //                       // 如果设置为 true 或者 body，所有的 javascript 资源将被放置到 body 元素的底部，
+    //                       // 'head' 将放置到 head 元素中
+    //   // hash: true | false, 默认值 true, 添加一个唯一的 webpack 编译 hash 到所有包含的脚本和 CSS 文件，对于解除 cache 很有用。
+    //   // cache: true | false，默认值 true, 仅仅在文件修改之后才会发布文件。
+    //   // showErrors: true | false, 默认值 true,错误信息会写入到 HTML 页面中
+    //   // chunks: 允许只添加某些块 (比如，仅仅 unit test 块)
+    //   // minify: {           // minify: {} | false , 传递 html-minifier 选项给 minify 输出
+    //   //   removeComments: true,     //移除HTML中的注释
+    //   //   collapseWhitespace: true, //删除空白符与换行符
+    //   // }
+    // })
+    /**
+     * HTML文件编译，自动引用JS/CSS
+     *
+     * filename - 输出文件名，相对路径output.path
+     * template - HTML模板，相对配置文件目录
+     * chunks - 只包含指定的文件（打包后输出的JS/CSS）,不指定的话，它会包含生成的所有js和css文件
+     * excludeChunks - 排除指定的文件（打包后输出的JS/CSS），比如：excludeChunks: ['dev-helper']
+     * hash
+     */
   ])
 })
 
@@ -80,8 +97,9 @@ if (isProd) {
   }
 
   clientConfig.plugins.push(
-    // 使用单独的 css 文件
-    new ExtractTextPlugin('styles.[hash].css'),
+    // 打包成单独的 css 文件
+    // new ExtractTextPlugin({filename: 'styles.[hash].css', allChunks: true}),
+    new ExtractTextPlugin({filename: 'styles.[hash].css'}),
     // this is needed in webpack 2 for minifying CSS
     new webpack.LoaderOptionsPlugin({
       minimize: true

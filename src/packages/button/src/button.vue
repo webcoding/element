@@ -49,6 +49,7 @@ export default {
     disabled: Boolean,
     loading: Boolean,
     plain: Boolean,
+    isBlock: Boolean,
     type: {
       type: String,
       default: '',
@@ -114,6 +115,7 @@ export default {
         {
           'disabled': this.disabled,
           'plain': this.plain,
+          'is-block': this.isBlock,
         }
       ]
     },

@@ -211,6 +211,8 @@ pre {
   margin-bottom: 1rem;
   // Normalize v4 removed this property, causing `<pre>` content to break out of wrapping code snippets
   overflow: auto;
+  // 自动换行
+  white-space: pre-wrap;
 }
 
 

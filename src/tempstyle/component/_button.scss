@@ -91,12 +91,14 @@
 input[type="submit"],
 input[type="reset"],
 input[type="button"] {
-  &.#{$ns}btn.block {
+  &.#{$ns}btn.block,
+  &.#{$ns}btn.is-block {
     width: 100%;
   }
 }
 
-.#{$ns}btn.block + .#{$ns}btn.block {
+.#{$ns}btn.block + .#{$ns}btn.block,
+.#{$ns}btn.is-block + .#{$ns}btn.is-block {
   margin-top: px2rem(10);
 }
 

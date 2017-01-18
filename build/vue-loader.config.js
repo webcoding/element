@@ -6,6 +6,23 @@ module.exports = {
     // require('autoprefixer')({
     //   browsers: ['last 3 versions']
     // }),
+
+
+
+    require('postcss-salad'),
+    // require('postcss-at-rules-variables'),
+    // // atIf 应用 if else 语句
+    // require('postcss-conditionals'),
+    // // atEach 应用 each 语句 @each $val in var(--array) { } @for var(--array) {}
+    // require('postcss-each'),
+    // // atFor 应用 for 语句
+    // // @for $i from var(--from) to var(--to) by var(--step) { .b-$i { width: $(i)px; } }
+    // require('postcss-for'),
+
+
+
+
+
     /**
       postcss
       postcss-import
@@ -23,7 +40,7 @@ module.exports = {
     // require('postcss-import'), //atImport
     // atVariables  atRules ['for', 'if', 'else', 'each'] （要使用，先安装以下依赖）
     // require('postcss-custom-properties'),  //customProperties
-    require('postcss-salad'),
+
     // Supports variables in this $format, like Sass.
     // require('postcss-simple-vars'),
     // 清除注释
@@ -33,14 +50,7 @@ module.exports = {
     // 简写最大最小值比较 @media screen and (500px <= width <= 1200px) {}
     // require('postcss-media-minmax'),
     //
-    require('postcss-at-rules-variables'),
-    // atIf 应用 if else 语句
-    require('postcss-conditionals'),
-    // atEach 应用 each 语句 @each $val in var(--array) { } @for var(--array) {}
-    require('postcss-each'),
-    // atFor 应用 for 语句
-    // @for $i from var(--from) to var(--to) by var(--step) { .b-$i { width: $(i)px; } }
-    require('postcss-for'),
+
     // 使用 postcss-nesting 或 postcss-nested 增加样式规则嵌套支持
     // 支持嵌套写法 A plugin allows for nesting selectors and media queries.
     // http://jonathantneal.github.io/postcss-nesting/

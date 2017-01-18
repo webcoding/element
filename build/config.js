@@ -16,6 +16,7 @@ module.exports = {
   // manifest: './manifest.json',
   client: {
     api: './create-api-client.js',
+    // app: './src/client-entry.js',
     entry: projectPath + 'client-entry.js',
     // 相对于 path(即 output.path)
     filename: '../index.html',

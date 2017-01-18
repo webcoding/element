@@ -15,30 +15,6 @@ Bug是否已经解决 可能值：
     FIXED（已修复，待确认）
 ```
 
-## 最关键的几个问题
-
-第一部分
-
-- 便于调试，开发模式必须要能定位到源码（目前还没做到）
-- debug 工具（切换测试环境、查看 log）
-- 输出支持对不同环境做特定输出，如 dev prod client server hybird 等
-- 规范书写统一格式，使用 eslint 规范格式
-- 全局调用组件
-- 组件库格式
-- 自动化测试（典型示例）
-- 数据mock 测试以及 ajax
-- title 更新
-- jsDoc 文档自动生成
-
-第二部分
-
-- 关于 webpack 配置的
-- CSS3 动画
-- 解决 PC 及 mobile 自适应排版，路由变换问题
-- 本地启动服务时，偶尔会遇到端口占用情况，这个需要解决
-- 单页面应用也不能完全单页（资源统一集中加载），应该根据情况按需分组加载或自动分组加载
-- nodejs 工具（header 更新）
-- navigator.serviceWorker
 
 
 
@@ -47,7 +23,8 @@ Bug是否已经解决 可能值：
 ```
 // TODO: 待处理
 // 环境 dev prod test
-// 运行时 client server hybird wechat/wxapp
+// 端输出 client server hybird wechat/wxapp
+// 多容器(宿主)及运行时(runtime)
 
 npm run dev(对应 client)
 npm run build(仅编译不启动 server)

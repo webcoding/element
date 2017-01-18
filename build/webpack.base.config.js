@@ -1,9 +1,34 @@
 const path = require('path')
 const vueConfig = require('./vue-loader.config')
+// 引入插件
+const vConsolePlugin = require('vconsole-webpack-plugin');
+// const vConsole = require('vconsole');
+// 接收运行参数(这里要支持参数精简化)
+const argv = require('yargs')
+    .describe('debug', 'debug 环境') // use 'webpack --debug'
+    .argv;
 
 const isProd = process.env.NODE_ENV === 'production'
+const isDebug = !(isProd || process.env.NODE_ENV === 'test')
+console.log('isDebug mode: ', isDebug)
+
 var baseConfig = require('./config')
 var config = baseConfig.client
+var clientEntry = {
+  app: config.entry,
+  // vconsole: './node_modules/vconsole',
+  vendor: [
+    'es6-promise',
+    // 'firebase/app',
+    // 'firebase/database',
+    'vue',
+    'vue-router',
+    'vuex',
+    'vuex-router-sync',
+  ],
+}
+
+// var clientEntry = isDebug ? Object.assign({}, clientEntry, {vconsole: vConsole }) : clientEntry
 
 // console.log('path.resolve: ', path.resolve(__dirname,  'dist/static'))
 // console.log('path.join:    ', path.join(__dirname, 'dist/static'))
@@ -15,19 +40,7 @@ var config = baseConfig.client
 
 module.exports = {
   devtool: '#source-map',
-  entry: {
-    // app: './src/client-entry.js',
-    app: config.entry,
-    vendor: [
-      'es6-promise',
-      // 'firebase/app',
-      // 'firebase/database',
-      'vue',
-      'vue-router',
-      'vuex',
-      'vuex-router-sync',
-    ],
-  },
+  entry: clientEntry,
   // 怎样存储输出结果以及存储到哪里
   output: {
     // path: path.resolve(__dirname, '../dist'),
@@ -55,6 +68,8 @@ module.exports = {
     // chunkFilename: 'js/[name].js',
   },
   plugins: [
+    // new vConsolePlugin({ enable: isDebug }),
+
     // 全局引入 jquery 等插件，不需要每次使用时 import
     // new webpack.ProvidePlugin({
     //   $: "jquery",

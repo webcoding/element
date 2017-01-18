@@ -5,6 +5,7 @@
     <transition :name="transition">
       <router-view class="view"></router-view>
     </transition>
+    <v-debug v-if="isDebug">hello</v-debug>
   </div>
 </template>
 
@@ -19,6 +20,7 @@ export default {
   },
   data() {
     return {
+      isDebug: true,
       transition: "slide-left"
     }
   },

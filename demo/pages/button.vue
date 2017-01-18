@@ -2,6 +2,7 @@
   <page class="page-btn">
     <div class="page-header">
       <h3>按钮 <small>button</small></h3>
+      <p>主按钮和次按钮可独立使用，空心按钮用于和主按钮组合。需要强引导用主按钮，切记主按钮在同一个操作区域最多出现一次。</p>
     </div>
     <group padded title="普通按钮">
       <h4>默认</h4>
@@ -9,7 +10,10 @@
       <x-button>默认次按钮</x-button>
       <x-button type="ghost">空心按钮</x-button>
       <x-button type="dashed">虚线按钮</x-button>
-      <p>主按钮和次按钮可独立使用，空心按钮用于和主按钮组合。需要强引导用主按钮，切记主按钮在同一个操作区域最多出现一次。</p>
+
+      <p>要避免并列过多操作让用户选择，在不得不并列多个操作时，需区分操作主次，减轻用户的选择难度。</p>
+      <x-button type="primary" is-block>主要操作</x-button>
+      <x-button type="default" is-block>次要操作</x-button>
 
       <h4>尺寸大小</h4>
       <x-button size="xs">超小按钮</x-button>
