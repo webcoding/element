@@ -20,14 +20,14 @@ module.exports = {
     entry: projectPath + 'client-entry.js',
     // 相对于 path(即 output.path)
     filename: '../index.html',
-    template: projectPath + 'index.html',
+    template: projectPath + 'tpl/index.html',
     dist: '/dist',
   },
   server: {
     api: './create-api-server.js',
     entry: projectPath + 'server-entry.js',
     // filename: '../index.html',
-    // template: projectPath + 'index.tpl',
+    // template: projectPath + 'tpl/index.tpl',
     dist: '/dist',
   }
 

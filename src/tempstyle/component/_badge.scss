@@ -68,8 +68,11 @@
 
 // modifiers: status
 // -----------------------------------------------------------------------------
+.#{$badge-prefix} .#{$badge-prefix}-text:empty{
+  display: none;
+}
 .#{$badge-prefix}:empty,
-.#{$badge-prefix}.is-point {
+.#{$badge-prefix}.is-dot {
   padding: px2rem(4);
   min-width: initial;
   border-radius: 400rem;

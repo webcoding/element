@@ -3,7 +3,7 @@ module.exports = {
   parser: 'babel-eslint',
   parserOptions: {
     // ecmaVersion: 6,
-    sourceType: 'module'
+    sourceType: 'module',
   },
   "globals": {
     "Vue": false,
@@ -17,7 +17,7 @@ module.exports = {
   extends: 'standard',
   // required to lint *.vue files
   plugins: [
-    'html'
+    'html',
   ],
   // 'env': {
   //   'browser': true,

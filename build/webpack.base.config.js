@@ -68,7 +68,8 @@ module.exports = {
     // chunkFilename: 'js/[name].js',
   },
   plugins: [
-    new vConsolePlugin({ enable: isDebug }),
+    // 此组件会拦截 console 的报错，导致报错定位出现一定问题
+    // new vConsolePlugin({ enable: isDebug }),
 
     // 全局引入 jquery 等插件，不需要每次使用时 import
     // new webpack.ProvidePlugin({

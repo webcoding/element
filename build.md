@@ -5,14 +5,25 @@
 
 ```
 各种代码状态标记
-FIXME, TODO, CHANGED, XXX, IDEA, HACK, NOTE, REVIEW
+    FIXME:
+    TODO:
+    CHANGED:
+    XXX:
+    IDEA:
+    HACK:
+    NOTE:
+    REVIEW:
+    BUG:
+    QUESTION:
+    COMBAK:
+    TEMP:
 Bug当前状态 可能值：
-    OPEN
-    CLOSE  已经修复，最终状态：关闭
-    REOPEN 重新打开
+    OPEN:
+    CLOSE:  已经修复，最终状态：关闭
+    REOPEN: 重新打开
 Bug是否已经解决 可能值：
-    INVALID
-    FIXED（已修复，待确认）
+    INVALID:
+    FIXED:（已修复，待确认）
 ```
 
 
@@ -47,9 +58,11 @@ npm run test(测试)
 │   ├── routes/            # 路由 或使用单文件 route.js（和 main.js 同级）
 │   ├── services/          # 服务（SERVICE，用于统一管理 XHR 请求）
 │   ├── views/             # 路由视图基页（VIEW）
+│   ├── tpl/               # 模板文件夹
+│   │   ├── index.html       # 默认模板，可以放多个模板
+│   │   ├── output.js        # 使用多个模板时的输出配置
 │   ├── App.vue            # 启动文件
 │   ├── main.js            # 入口 js
-│   ├── index.html         # 静态基页
 ├── node_modules/        # 依赖的 node 工具包目录
 ├── dist/                # build 生成的生产环境下的项目
 ├── src/                 # 源码目录（开发都在这里进行）
@@ -58,8 +71,9 @@ npm run test(测试)
 │   ├── packages/          # 组件包
 │   ├── utils/             # 工具函数
 │   ├── styles/            # 样式
-│   ├── index.js           # 组件汇总
+│   ├── index.js           # 组件汇总输出
 ├── static/              # 放置无需经由 Webpack 处理的静态文件
+|                          静态文件合并，不要放置令人混淆的多个目录结构
 ├── test/                # 测试文件目录
 ├── .babelrc             # Babel 转码配置
 ├── .eslintrc.js         # ES 语法检查配置

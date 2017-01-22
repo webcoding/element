@@ -10,7 +10,7 @@
           :title="item.title + ' ' + item.small"
           is-link>
           <i solt="media" v-if="item.icon" :class="['iconfont', 'icon-' + item.icon]"></i>
-          <badge :type="item.status">{{item.status}}</badge>
+          <badge :status="item.status">{{item.status}}</badge>
         </cell>
       </div>
     </div>
