@@ -18,15 +18,15 @@
         </cell>
         <cell title="标题文字" desc="摘要信息">
           <svg slot="icon" width="40px" height="40px" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="40" height="40" fill="#ebebeb" stroke="#ddd" stroke-width="1"/></svg>
-          <badge slot="badge" color="red">8</badge>
+          <badge slot="badge" color="red" text="8"></badge>
           <span>带 badge</span>
-          <badge color="#f60" textColor="#fff">28</badge>
+          <badge color="#f60" textColor="#fff" text="28"></badge>
         </cell>
         <cell is-link title="我的订单" desc="带链接">
           <span>查看全部订单</span>
         </cell>
         <cell title="标题文字">
-          <badge>10</badge>
+          <badge text="10"></badge>
         </cell>
         <cell title="标题文字">
           <span style="color: green">自定义元素</span>

@@ -6,41 +6,43 @@
     <group padded class="badge-demo">
       <h4>默认</h4>
       <badge status="todo" text="1"></badge>
-      <badge status="doing" text="new"></badge>
-      <badge status="done" text="new"></badge>
+      <badge status="doing" text="2"></badge>
+      <badge status="done" text="3"></badge>
       <br/>
-      <badge status="todo">123</badge>
-      <badge status="doing">99+</badge>
-      <badge status="todo">...</badge>
-      <badge status="done">new</badge>
+      <badge status="todo" text="12"></badge>
+      <badge status="doing" text="123" :max="99"></badge>
+      <badge status="done" text="1201" :max="999"></badge>
+      <badge status="todo" text="..."></badge>
+      <badge status="doing" text="券" shape="radius"></badge>
+      <badge status="done" :style="{backgroundColor: '#fff', color: '#f19736', border: '1px solid #f19736', borderRadius: '2px'}" text="自动缴费"></badge>
       <br/>
-      <badge color="blue">自定义背景色</badge>
-      <badge textColor="yellow">自定义颜色</badge>
+      <badge color="blue" text="自定义背景色"></badge>
+      <badge textColor="yellow" text="自定义颜色"></badge>
       <h4>特定形状</h4>
-      <badge status="todo" shape="square">1</badge>
-      <badge status="doing" shape="radius">2</badge>
-      <badge status="done" shape="circle">3</badge>
+      <badge status="todo" shape="square" text="1"></badge>
+      <badge status="doing" shape="radius" text="2"></badge>
+      <badge status="done" shape="circle" text="3"></badge>
       <badge isDot>2</badge>
       <h4>Size 尺寸大小？</h4>
-      <p>这个暂无必要</p>
+      <p>这个暂时无必要</p>
     </group>
     <div class="group">
       <div class="group-header">未读数红点跟在主题信息后，统一在列表左侧</div>
       <div class="list">
-        <cell title="标题文字" desc="摘要信息">
+        <cell title="社交中的一对一的消息通知" desc="当用户有必要知晓每条更新时，应该使用数字型">
           <svg slot="icon" width="40px" height="40px" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="40" height="40" fill="#ebebeb" stroke="#ddd" stroke-width="1"/></svg>
-          <badge slot="badge" isDot>3</badge>
-          <span>icon 是图片</span>
+          <badge slot="badge" text="6"></badge>
+          <badge text="NEW"></badge>
         </cell>
-        <cell title="标题文字" desc="摘要信息">
+        <cell title="社交中的群消息通知" desc="当用户只需知道大致有内容更新时，应该使用红点型">
           <svg slot="icon" width="40px" height="40px" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="40" height="40" fill="#ebebeb" stroke="#ddd" stroke-width="1"/></svg>
-          <badge slot="badge">6</badge>
-          <span>icon 是图片</span>
+          <badge slot="badge" v-show="isShow" text="3" isDot></badge>
+          <span><x-switch v-model="isShow"></x-switch></span>
         </cell>
-        <cell title="标题文字">
+        <cell title="超出99" desc="数字显示可以设定上限 max，默认99">
           <svg slot="icon" width="40px" height="40px" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="40" height="40" fill="#ebebeb" stroke="#ddd" stroke-width="1"/></svg>
-          <badge slot="badge">28</badge>
-          <span>icon 是图片</span>
+          <badge slot="badge" text="100" :max="99"></badge>
+          <span>加减操作</span>
         </cell>
       </div>
     </div>
@@ -53,7 +55,7 @@
         </cell>
         <cell title="我的订单">
           <span>未评价</span>
-          <badge status="doing" size="small">10</badge>
+          <badge status="doing" size="small" text="NEW"></badge>
         </cell>
 
         <!-- 不建议 badge 放左侧
@@ -66,9 +68,11 @@
 </template>
 
 <script>
+// TODO: 貌似 99+ 中的 + 号有点未垂直居中
 export default {
   data: function () {
     return {
+      isShow: true,
     }
   },
   computed: {},

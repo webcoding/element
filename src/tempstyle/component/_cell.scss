@@ -232,7 +232,7 @@
     // }
 
     // cell-media 不为空，会产生一个间距
-    *:first-child{
+    > *:first-child{
       margin-right: $spacer / 2;
     }
 
@@ -244,6 +244,7 @@
       // right: px2rem(10);
       // 定位 采用右对齐(向上偏移 40%)
       transform: translate(px2rem(8), -40%);
+      margin: 0;
     }
 
     .badge.is-dot{
