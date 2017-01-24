@@ -8,6 +8,7 @@ test/unit/coverage
 test/e2e/reports
 selenium-debug.log
 *.zip
+.vscode/
 
 # 项目调整新增，临时忽视
 test/
@@ -15,4 +16,4 @@ config/
 static/
 temp
 examples/
-assets
+assets/

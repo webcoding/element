@@ -127,19 +127,24 @@ app.get('*', (req, res) => {
   var s = Date.now()
 
   const context = { url: req.url }
+  // 渲染我们的Vue实例作为流
   const renderStream = renderer.renderToStream(context)
   console.log('render: ', context)
 
+  // 将HTML head写入响应
   renderStream.once('data', () => {
     console.log('stream: ', streamNum++);
     res.write(indexHTML.head)
   })
 
+  // 每当新的块被渲染
   renderStream.on('data', chunk => {
     console.log('stream: ', streamNum++);
+    // 将块写入响应
     res.write(chunk)
   })
 
+  // 当所有的块被渲染完成
   renderStream.on('end', () => {
     // embed initial store state
     if (context.initialState) {
@@ -149,11 +154,14 @@ app.get('*', (req, res) => {
         }</script>`
       )
     }
+    // 将HTML tail写入响应
     res.end(indexHTML.tail)
     console.log(`whole request: ${Date.now() - s}ms`)
   })
 
+  // 当渲染时发生错误
   renderStream.on('error', err => {
+    // 告诉客户端发生了错误
     // 制作一个对应的 404 页面
     if (err && err.code === '404') {
       res.status(404).end('404 | Page Not Found')
@@ -162,6 +170,8 @@ app.get('*', (req, res) => {
     // Render Error Page or Redirect
     // 制作一个对应的 500 页面
     res.status(500).end('Internal Error 500')
+
+    // 打印错误到控制台
     console.error(`error during render : ${req.url}`)
     console.error(err)
   })

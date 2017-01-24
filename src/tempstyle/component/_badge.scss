@@ -73,12 +73,14 @@
 }
 .#{$badge-prefix}:empty,
 .#{$badge-prefix}.is-dot {
-  padding: px2rem(4);
+  // padding: px2rem(4);
   min-width: initial;
   border-radius: 400rem;
   font-size: 0;
-  width: 0;
-  height: 0;
+  line-height: 1;
+  width: px2rem(8);
+  height: px2rem(8);
+  overflow: hidden;
 }
 
 .doc-content {

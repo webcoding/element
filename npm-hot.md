@@ -1,0 +1,94 @@
+# node.js常用模块
+
+- underscore/lodash 提供set的交、并、差、补，提供简单的模版算法，提供各种排序。
+- async:异步库 q:异步promise库 when:promise库
+- request HTTP请求库，缓存、并发、多客户端，写client以及各种爬虫都会依赖的库
+- express http server？过于低级，还是用一下express，能让你的生命美好一些，中等复杂度
+- commander 类似于optimist
+- colors unix终端下显示颜色的库，利于调试和一些特殊场景
+- mkdirp 一次性建立目标文件夹，而不是mkdir...cd...mkdir...cd...mkdir这样的模式
+- uglify-js js的压缩器
+- socket.io webscoket通讯，node.js实现的准官配
+- connect express中间件
+- debug debug辅助模块
+- mime MIME处理库
+- glob 通配符文件列表模块
+- node-uuid 生成uuid的模块 通用唯一识别码
+- moment 时间处理模块，生成类似于：发表于12分钟前这类的string
+- winston 调试、log类模块
+- through 对stream的封装类
+- grunt/gulp/webpack 前端构建工具
+- less/sass/stylus 样式库
+- redis redis的client
+- mongodb mogondb的client
+- mongoose mogondb的client
+- mysql mysql的client
+- xml2js 较为严格的将xml=>js对象的类
+- cheerio jquery的node.js轻量级实现
+- handlebars Mustache无逻辑模版语言的实现
+- semver npm以及package.json解析版本号时的辅助模块，更为语义化
+- jsdom cheerio的重量级严格实现
+- marked markdown实现
+- wrench 递归文件、文件夹操作一体化解决方案
+- pkginfo 包信息解析器
+- yeoman-generator yeoman的生成器
+- mocha 测试框架
+- should 测试框架
+- chai 测试框架
+- nodeunit 单元测试框架
+- rimraf   rm -rf
+- underscore.string unserscore的string扩展
+- js-yaml yaml操作类
+- backbone backbone框架
+- browserify js压缩器
+- esprima ECMAScript解析器
+- nopt opt解析
+- superagent http request库
+- ws webscoket库
+- oauth oauth认证库
+- passport 认证类集合工具库
+- passport-oauth 认证类库
+- validator 后端验证库
+- readable-stream stream处理库
+- cli-color color库
+- prompt 提示符库
+- http-proxy http的一个proxy
+- minimatch 通配符实现
+- fs-extra 文件操作相关工具库
+- hiredis c的redis client，官配库hiredis的node绑定，redis库可选安装，自动使用
+- jquery/zepto
+- nconf conf，配置文件管理库
+- nodemailer 邮件库
+- eventemitter2 事件库
+- qs querystring
+- clean-css css 库
+- temp 临时文件操作库
+- requirejs 加载辅助库
+- step 异步串行化
+- npm
+- mustache mustache模版库
+- inherits 继承工具库
+- shelljs shell 化
+- socket.io-client socket.io的node client
+- watch watch库
+- xtend 扩展js object的工具类库，兼容各种游览器
+- nib  stylus工具
+- bindings 绑定类库时的帮助类
+- vows 异步测试框架vows
+- dateformat 处理各类日期的函数
+- formidable 处理form的工具类
+- log4js 日志库
+- pg pg 的库
+- tar 打包工具库
+- hogan.js mustache编译器
+- canvas canvas的服务端实现
+- ncp 递归文件拷贝
+- consolidate 模版类
+- event-stream 事件类，stream辅助
+- knox Amazon的S3 client
+- sprintf sprintf的node.js版
+- findit 递归遍历目录树工具类
+- jshint js静态分析器
+- required-keys js object，key检查器
+- escodegen ECMAScript代码生成
+- node-static 静态文件服务器

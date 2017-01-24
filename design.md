@@ -1,15 +1,15 @@
 ## 设计及目标
 
-- Object: 编辑环境、构建调试、debug工具
+- Object: 编辑构建编译、调试、debug工具
   - 浏览器运行时——源码定位（热更新状态下）
   - 开发版——调试工具实现（打开调试），包含但不限于以下情况
     - log日志 √
     - system配置及参数（系统、网络、UA、宿主等）√
-    - 切换 API 环境
+    - 支持切换 API 环境
     - 操作项目缓存等
   - 基于需要输出
-    - 基于 webpack2 打包输出
-    - 输入参数精简化，如 npm run --prod(以下名称为参考)
+    - 基于 webpack2 打包输出，对配置深入了解
+    - 输入参数精简化处理，如 npm run --prod(以下名称为参考)
     - 运行环境 local/dev/prod/test 默认 dev(prod 和 test 环境，debug 为 false)
     - 渲染模式 client/server/wechat/hybird (默认 client)
   - 编辑器 Atom/VSCode
@@ -24,13 +24,14 @@
     - 定义 header 和 page 布局如何构建组成，高度问题，页面转场问题
     - 项目级结构精简实现？
   - 定义组件库格式（10个组件）
-    - src/ 组件组成文件（包含 tpl、css、js）
+    - src/ 组件组成文件（包含 tpl、css、js data 等）
+    - demo/ demo 使用案例
     - index.js 组件输出
-    - data.js 其他数据等
+    - index.md 组件功能介绍、需求描述、使用规则、API 参数等（API 参数可以使用 jsDoc 格式输出）
   - 文档注释说明（jsDoc 格式要求）
     - jsDoc 格式的详细说明文档及注意事项
   - 定义全局组件调用方式（2个全局组件）
-  - TDK 更新方式实现
+  - TDK 更新方式实现（由组件 vue-tdk 实现）
   - 数据驱动 vuex
   - 路由规划 vue-router
   - 实现组件库及 demo 运行示例
