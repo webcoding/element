@@ -1,4 +1,4 @@
 
 import Cell from './src/cell.vue'
 
-module.exports = Cell
+export default Cell

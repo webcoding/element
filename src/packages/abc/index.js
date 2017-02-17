@@ -1,4 +1,4 @@
 
 import Abc from './src/abc.vue'
 
-module.exports = Abc
+export default Abc

@@ -88,25 +88,41 @@ if (isProd) {
     //   fallbackLoader: 'vue-style-loader' // <- this is a dep of vue-loader
     // })
     // stylus: ExtractTextPlugin.extract({
-    sass: ExtractTextPlugin.extract({
-      // loader: 'css-loader!stylus-loader',
-      // loader: 'css-loader!postcss-loader',
-      loader: 'css-loader!sass-loader', // 换成 sass，还要安装 node-sass的
-      fallbackLoader: 'vue-style-loader' // <- this is a dep of vue-loader
+    // sass: ExtractTextPlugin.extract({
+    //   // loader: 'css-loader!stylus-loader',
+    //   // loader: 'css-loader!postcss-loader',
+    //
+    //   // loader: 'css-loader!sass-loader',
+    //   // fallbackLoader: 'vue-style-loader' // <- this is a dep of vue-loader
+    // }),
+
+    test: /.scss$/,
+    // 换成 sass，还要安装 node-sass的
+    use: ExtractTextPlugin.extract({
+      fallback: "vue-style-loader",
+      use: ['css-loader', 'sass-loader'],
+      // publicPath: "/dist"
     }),
+
   }
 
   clientConfig.plugins.push(
     // 打包成单独的 css 文件
     // new ExtractTextPlugin({filename: 'styles.[hash].css', allChunks: true}),
-    new ExtractTextPlugin({filename: 'styles.[hash].css'}),
+    new ExtractTextPlugin({
+      filename: 'styles.[hash].css',
+      // disable: false,
+      // allChunks: true,
+    }),
     // this is needed in webpack 2 for minifying CSS
     new webpack.LoaderOptionsPlugin({
+      // debug: true
       minimize: true
     }),
     // minify JS
     // 获取bundle.js然后压缩和混淆内容以减小文件体积
     new webpack.optimize.UglifyJsPlugin({
+
       // mangle: {
       //   // 排除不想要压缩的对象名称
       //   except: ['$super', '$', 'exports', 'require', 'module', '_']

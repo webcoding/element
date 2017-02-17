@@ -1,4 +1,3 @@
-'use strict'
 
 import xTag from './packages/xtag'
 // import vDebug from './packages/debug'
@@ -51,7 +50,7 @@ import SearchBar from './packages/searchbar'
 // import PaletteButton from './packages/palette-button'
 // import './src/assets/font/iconfont.css'
 
-const install = function (Vue) {
+const install = function install(Vue) {
   if (install.installed) return
 
   Vue.component(xTag.name, xTag)
@@ -104,7 +103,7 @@ if (typeof window !== 'undefined' && window.Vue) {
   install(window.Vue)
 }
 
-module.exports = {
+export default {
   install,
   version: '1.0.5',
   // Header,

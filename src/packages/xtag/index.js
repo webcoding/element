@@ -1,4 +1,4 @@
 
 import xTag from './src/xtag.vue'
 
-module.exports = xTag
+export default xTag

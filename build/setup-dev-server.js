@@ -20,7 +20,7 @@ module.exports = function setupDevServer (app, opts) {
     new webpack.HotModuleReplacementPlugin({
       // multiStep: true
     }),
-    new webpack.NoErrorsPlugin()
+    new webpack.NoEmitOnErrorsPlugin()
   )
 
   // dev middleware

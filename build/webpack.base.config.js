@@ -2,6 +2,8 @@ const path = require('path')
 const vueConfig = require('./vue-loader.config')
 // 引入插件
 const vConsolePlugin = require('vconsole-webpack-plugin');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+
 // const vConsole = require('vconsole');
 // 接收运行参数(这里要支持参数精简化)
 const argv = require('yargs')
@@ -70,7 +72,12 @@ module.exports = {
   plugins: [
     // 此组件会拦截 console 的报错，导致报错定位出现一定问题
     // new vConsolePlugin({ enable: isDebug }),
-
+    // new UglifyJsPlugin({
+    //   sourceMap: true,
+    //   compress: {
+    //     warnings: true,
+    //   },
+    // }),
     // 全局引入 jquery 等插件，不需要每次使用时 import
     // new webpack.ProvidePlugin({
     //   $: "jquery",
@@ -98,10 +105,10 @@ module.exports = {
     // // 相对路径会在每一层父级目录中查找（类似 node_modules）。
     // // 绝对路径会直接查找。
     // // 将按你指定的顺序查找。
-    // modules: [
-    //   path.resolve(__dirname, "src"),
-    //   "node_modules"
-    // ],
+    modules: [
+      path.resolve(__dirname, "src"),
+      "node_modules",
+    ],
     // // root: path.join(__dirname, "src"),
     // // fallback: [path.join(__dirname, '../node_modules')],
     //
@@ -154,10 +161,19 @@ module.exports = {
     noParse: /es6-promise\.js$/, // avoid webpack shimming process
     // webpack 默认只识别 js 文件，所以对于html也要使用对应的loader
     rules: [
+      // {
+      //   test: /\.js$/,
+      //   enforce: "pre",
+      //   loader: "eslint-loader"
+      // },
       {
         test: /\.vue$/,
-        loader: 'vue-loader',
-        options: vueConfig
+        use: [
+          {
+            loader: 'vue-loader',
+            options: vueConfig,
+          }
+        ],
       },
       {
         test: /\.js$/,
@@ -169,11 +185,18 @@ module.exports = {
       },
       // {
       //   test: /\.scss$/,
-      //   loader: "style-loader!sass-loader",
+      //   use: ExtractTextPlugin.extract({
+      //     fallback: "style-loader",
+      //     use: "css-loader"
+      //   })
       // },
       {
         test: /\.css$/,
-        loader: "style-loader!css-loader!postcss-loader",
+        use: [
+          "style-loader",
+          "css-loader",
+          "sass-loader",
+        ],
       },
       // 图片 loader
       {

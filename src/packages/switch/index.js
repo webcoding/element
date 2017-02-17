@@ -1,4 +1,4 @@
 
 import Switch from './src/switch.vue'
 
-module.exports = Switch
+export default Switch

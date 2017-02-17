@@ -592,5 +592,4 @@ const navList = [
   },
 ]
 
-// module.exports = navList
 export default navList

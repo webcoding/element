@@ -1,4 +1,4 @@
 
 import Group from './src/group.vue'
 
-module.exports = Group
+export default Group

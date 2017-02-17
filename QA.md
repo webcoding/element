@@ -7,3 +7,9 @@
   或者对 props 属性验证做扩展，在底层实现基础验证
 
 - 组件属性 行内样式 style 传递？
+
+
+- TypeError: Cannot assign to read only property 'exports' of object '#<Object>'
+
+  原因是：The code above is ok. You can mix require and export. You can‘t mix import and module.exports.
+  也就是说，在webpack打包的时候，可以在js文件中混用require和export。但是不能混用import 以及module.exports。
