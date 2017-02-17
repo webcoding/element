@@ -12,12 +12,13 @@ english: Badge
 
 ### 需求描述
 
-- 支持内容自定义（数字、文本内容，如 99、NEW、自动缴费）
-- 支持自定义样式，背景颜色、字体颜色、边框、圆角等
-- 支持设定数字上限max，超过上限显示 ${max}+或...
+- text 支持内容自定义（数字、文本内容，如 99、NEW、自动缴费）
+- :style 支持自定义样式，背景颜色、字体颜色、边框、圆角等
+- :max 支持设定数字上限max，超过上限显示 ${max}+或...
 - 支持跳转，可设定链接类型(用 a 标签进行包裹即可)
-- 有限支持标签类型，样式定制，固定用法，如营销标签 券（满xx减x）、赠、促销、hot等
-- 支持数字变化时的切换动画
+- TODO: 有限支持标签类型，样式定制，固定用法，如营销标签 券（满xx减x）、赠、促销、hot等
+- TODO: status 支持状态类型表示，如 'success'、'processing'、'default'、'error'、'warning'
+- TODO: 支持数字变化时的切换动画
 
 
 ### 规则
@@ -26,7 +27,7 @@ english: Badge
 
 
 
-## API ( 适用平台：WEB、React-Native )
+## API ( 适用平台：WEB、APP )
 
 | 参数        | 说明           | 类型 可选值      | 默认值       |
 |------------|----------------|--------------------|--------------|
@@ -36,4 +37,4 @@ english: Badge
 | status   | 设置 Badge 为状态点 |   String 'success'、'processing'、'default'、'error'、'warning'    |  ''  |
 | dot   | 不展示数字，只有一个小红点   |   Boolean    |  false  |
 | max   | 展示封顶的数字值   | Number | 99 |
-| hot ( `WEB only` )      | 营销样式  | Boolean | false |
+| //hot ( `WEB only` )      | 营销样式  | Boolean | false |

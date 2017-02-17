@@ -7,8 +7,6 @@ module.exports = {
     //   browsers: ['last 3 versions']
     // }),
 
-
-
     require('postcss-salad'),
     // require('postcss-at-rules-variables'),
     // // atIf 应用 if else 语句
@@ -18,10 +16,6 @@ module.exports = {
     // // atFor 应用 for 语句
     // // @for $i from var(--from) to var(--to) by var(--step) { .b-$i { width: $(i)px; } }
     // require('postcss-for'),
-
-
-
-
 
     /**
       postcss

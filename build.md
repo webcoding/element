@@ -4,6 +4,7 @@
 > 可维护性第一原则
 
 ```
+TODO, FIXME, CHANGED, XXX, IDEA, HACK, NOTE, REVIEW, NB, BUG, QUESTION, COMBAK, TEMP
 各种代码状态标记
     FIXME:
     TODO:
@@ -80,6 +81,17 @@ npm run test(测试)
 ├── .eslintignore        # （配置）ESLint 检查中需忽略的文件（夹）
 ├── .gitignore           # （配置）需被 Git 忽略的文件（夹）
 ├── package.json         # 项目描述文件
+```
+
+组件库格式
+
+```
+src/packages/modules_name/
+    ├── src/ 该组件相关实现
+    ├── demo/ 该组件使用示例 demo
+    ├── test/  该组件单元测试用例
+    ├── index.js  入口文件
+    ├── *.md  该组件相关说明等
 ```
 
 

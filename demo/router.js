@@ -1,14 +1,17 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-Vue.use(Router)
-
 import error404 from './components/404.vue'
 import error500 from './components/500.vue'
 
 import demo from './pages/demo.vue'
 import index from './pages/index.vue'
 import about from './pages/about.vue'
+
+import navList from './navList'
+
+Vue.use(Router)
+
 // import typography from './pages/typography.vue'
 // import grid from './pages/grid.vue'
 // import icon from './pages/icon.vue'
@@ -20,24 +23,25 @@ import about from './pages/about.vue'
 // import ItemView from './pages/ItemView.vue'
 // import UserView from './pages/UserView.vue'
 
-import navList from './navList'
 
 const registerRoute = (config) => {
-  let routes = []
+  const routes = []
   config.map(nav =>
-    nav.list.map(page => {
+    nav.list.map((page) => {
+      // eslint-disable-line global-require
       if (page.status !== 'todo') {
-        console.log(page.link)
+        // console.log(page.link)
         routes.push({
           path: `/${page.link}`,
           component: require(`./pages/${page.link}.vue`),
           name: `demo/${page.link}`,
           meta: {
-            title: page.title + ' ' + page.small,
+            title: `${page.title} ${page.small}`,
             desc: page.desc,
           },
         })
       }
+      return false
     })
   )
 

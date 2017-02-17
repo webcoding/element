@@ -6,7 +6,7 @@
     <group padded class="badge-demo">
       <h4>默认</h4>
       <badge status="todo" text="1"></badge>
-      <badge status="doing" text="NEW"></badge>
+      <badge status="doing" text="2"></badge>
       <badge status="done" text="3"></badge>
       <br/>
       <badge text="12" />
@@ -19,7 +19,15 @@
       <br/>
       <badge color="blue" text="自定义背景色"></badge>
       <badge textColor="yellow" text="自定义颜色"></badge>
+      <br/>
+      <h4>特定状态类型，未完成</h4>
+      <badge status="success" />
+      <badge status="error" />
+      <badge status="default" />
+      <badge status="processing" />
+      <badge status="warning" />
       <h4>特定形状</h4>
+      <badge status="done" shape="dot"></badge>
       <badge status="todo" shape="square" text="1"></badge>
       <badge status="doing" shape="radius" text="2"></badge>
       <badge status="done" shape="circle" text="3"></badge>

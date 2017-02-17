@@ -11,8 +11,8 @@ app.$mount('#root')
 
 // service worker
 if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
-  console.log('register serviceWorker')
+  // console.log('register serviceWorker')
   navigator.serviceWorker.register('/service-worker.js')
 } else {
-  console.log('none serviceWorker')
+  // console.log('none serviceWorker')
 }

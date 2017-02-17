@@ -1,37 +1,52 @@
+
+// JS 书写规范
+// http://eslint.org
+// http://standardjs.com/rules.html
+// - 规范文档参看[javascript-style-guide](https://github.com/webcoding/javascript-style-guide/blob/master/docs)
+// - 具体配置及注意事项参看 [config-eslint.md](https://github.com/webcoding/javascript-style-guide/blob/master/docs/config-eslint.md)
+
+// NOTE: 兼容性设定，放置在项目根目录，此文件同时支持 ES5、ES6 便于切换（切换注释即可，待修订）
+
 module.exports = {
   root: true,
-  parser: 'babel-eslint',
+  parser: "babel-eslint",
+  installedESLint: true,
   parserOptions: {
     // ecmaVersion: 6,
-    sourceType: 'module',
+    sourceType: "module",
   },
-  "globals": {
-    "Vue": false,
+  globals: {
+    Vue: false,
+    navigator: false,
+    window: false,
   },
-  // http://eslint.org/docs/rules/
-  // https://github.com/feross/standard/blob/master/RULES.md#javascript-standard-style
-  // eslint-config-standard
-  // 可共享的标准格式配置, 在自己工程中，加入 .eslint 文件即可
-  // eslint-plugin-html
-  // 支持从 html 等文件的 <script> 标签中读取配置的插件，通常配置文件都是 js 文件
-  extends: 'standard',
-  // required to lint *.vue files
+
   plugins: [
-    'html',
+    // 处理 html 文件内 js 代码规范等
+    "html",
   ],
-  // 'env': {
-  //   'browser': true,
-  //   'node': true,
-  //   'es6': true
-  // },
+
+  // ES5 推荐规范
+  // extends: "webcoding/configurations/airbnb/es5",
+  // ES6 推荐规范
+  extends: "airbnb",
+  // extends: "webcoding/configurations/airbnb/es6",
+
   // add your custom rules here
-  'rules': {
-    // allow paren-less arrow functions
-    'arrow-parens': 0,
-    'comma-dangle': [1, 'always-multiline'],
-    // allow async-await
-    'generator-star-spacing': 0,
-    // allow debugger during development
-    'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0
+  rules: {
+    // 行尾分号，默认配置always，要求在行末加上分号，standard 配置强制不带
+    semi: ["error", "never"],
+    // 多行模式必须带逗号，单行模式不能带逗号
+    "comma-dangle": ["error", "always-multiline"],
+    "max-len": ["error", {"code": 160}],
+    // 禁止使用位操作符，~除外，如果非要使用，留个注释说明原因和目的
+    "no-bitwise": ["error", { "allow": ["~"] }],
+    // 箭头函数的参数使用圆括号，但参数只有一个时，可以省略圆括号，但若函数体在指令块中则必须写圆括号
+    // "arrow-parens": ["error", "as-needed", { "requireForBlockBody": true }],
+    // "space-before-function-paren":
+    // 禁止使用 console debugger
+    // "no-console": 1,
+    // 禁止使用 debugger
+    // "no-debugger": process.env.NODE_ENV === "production" ? 2 : 0,
   }
 }

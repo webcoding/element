@@ -19,17 +19,17 @@
 
 
 <script>
-import navs from '../navList';
+import navs from '../navList'
 
 export default {
   data() {
     return {
-      navs: []
-    };
+      navs: [],
+    }
   },
 
   created() {
-    this.navs = navs;
+    this.navs = navs
   },
 
   methods() {
@@ -38,7 +38,7 @@ export default {
     //   return item.title + ' ' + item.small.toString()[0].toUpperCase() + item.small.toString().slice(1)
     // },
   },
-};
+}
 </script>
 
 <style lang="sass">

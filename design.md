@@ -1,8 +1,8 @@
 ## 设计及目标
 
 - Object: 编辑构建编译、调试、debug工具
-  - 浏览器运行时——源码定位（热更新状态下）
-  - 开发版——调试工具实现（打开调试），包含但不限于以下情况
+  - 浏览器运行时——SourceMap源码定位（热更新状态下）
+  - 开发版——增加调试工具（vConsole），包含但不限于以下情况
     - log日志 √
     - system配置及参数（系统、网络、UA、宿主等）√
     - 支持切换 API 环境
@@ -13,33 +13,36 @@
     - 运行环境 local/dev/prod/test 默认 dev(prod 和 test 环境，debug 为 false)
     - 渲染模式 client/server/wechat/hybird (默认 client)
   - 编辑器 Atom/VSCode
-    - ESlint 代码格式规范检测
-    - 配置云同步 √
-    - 定位变量声明位置 √
-    - 编辑器直接运行代码——CodeRunner √（使用场景，还不熟练）
+    - 配置云同步——Settings Sync √
+    - 变量跟踪——File Peek √
+    - 编辑器直接运行代码——Code Runner √（使用场景，还不熟练）
   - css 样式属性自动排序（有利于渲染）
 
 - Object: 框架设计实现
   - view/page 布局展现
     - 定义 header 和 page 布局如何构建组成，高度问题，页面转场问题
     - 项目级结构精简实现？
-  - 定义组件库格式（10个组件）
-    - src/ 组件组成文件（包含 tpl、css、js data 等）
+  - 定义组件库格式 √
+    - 实现10个组件（badge、switch、cell、button、header、tabbar、toolbar、searchbar、slider、field）
+    - src/ 组件相关实现（包含 tpl、css、js data 等）
     - demo/ demo 使用案例
+    - test/ 单元测试用例
     - index.js 组件输出
     - index.md 组件功能介绍、需求描述、使用规则、API 参数等（API 参数可以使用 jsDoc 格式输出）
   - 文档注释说明（jsDoc 格式要求）
     - jsDoc 格式的详细说明文档及注意事项
-  - 定义全局组件调用方式（2个全局组件）
-  - TDK 更新方式实现（由组件 vue-tdk 实现）
-  - 数据驱动 vuex
-  - 路由规划 vue-router
-  - 实现组件库及 demo 运行示例
-  - 实现一个项目示例（实现首页）
+  - 定义全局组件调用方式
+    - 实现2个全局组件（toast、alert）
+  - TDK 更新方式实现（提取，由组件 vue-tdk 实现）
+  - 数据驱动使用 vuex
+  - 路由规划使用 vue-router
+  - 实现组件库对应的 demo 运行示例
+  - 实现一个项目示例（实现一个真实业务需求的项目页面）
 
 - Object: 测试自动化
+  - ESlint 代码格式规范检测
   - mock 模拟数据（mock.js）
-  - （70%投入）unit 单元测试，用来确保每个组件正常工作（典型示例4个）
+  - （70%投入）unit 单元测试，用来确保每个组件正常工作（实现4个典型示例）
   - （20%投入）集成、接口测试，用来确保不同组件互相合作
   - （10%投入）e2e 端到端/UI测试 用户界面测试用来测试实现是否和设计时候所想的一样
   - ？功能测试，用来确保整个应用会按照用户期望的那样运行 —— 主要测试界面交互（操作反馈、提示、数据状态等）
