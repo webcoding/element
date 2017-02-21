@@ -15,8 +15,15 @@
   - 编辑器 Atom/VSCode
     - 配置云同步——Settings Sync √
     - 变量跟踪——File Peek √
-    - 编辑器直接运行代码——Code Runner √（使用场景，还不熟练）
+    - .eslintrc.js 配置
+    - .stylelintrc 配置
+    - 编辑器直接运行代码——Code Runner √（配饰 stage-0）
   - css 样式属性自动排序（有利于渲染）
+
+- Object: 代码规范
+  - javascript
+  - html
+  - css
 
 - Object: 框架设计实现
   - view/page 布局展现
@@ -40,7 +47,7 @@
   - 实现一个项目示例（实现一个真实业务需求的项目页面）
 
 - Object: 测试自动化
-  - ESlint 代码格式规范检测
+  - ESlint 代码格式规范检测 √
   - mock 模拟数据（mock.js）
   - （70%投入）unit 单元测试，用来确保每个组件正常工作（实现4个典型示例）
   - （20%投入）集成、接口测试，用来确保不同组件互相合作
