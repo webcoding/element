@@ -1,6 +1,9 @@
 <template>
-  <page>
-    <router-link class="content-block-title" to="about" tag="div">Welcome To h5Plus@Vue2.x</router-link>
+  <page class="page-demo">
+    <group padded>
+      <router-link to="about" tag="h2">Web Design Mobile@Vue2.x</router-link>
+      <p>移动端组件库</p>
+    </group>
     <div class="group" v-for="group in navs">
       <div class="group-header" v-text="group.title"></div>
       <div class="list">

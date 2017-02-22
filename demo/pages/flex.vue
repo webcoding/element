@@ -7,13 +7,35 @@
       <p>Flex是Flexible Box的缩写，意为"弹性布局"，用来为盒状模型提供最大的灵活性。</p>
       <p class="note"><b>注意</b> 设为Flex布局以后，子元素的float、clear和vertical-align属性将失效。</p>
     </div>
+    <group padded>
+      <div class="x-row">
+        <div class="x-col">item</div>
+      </div>
+      <div class="x-row">
+        <div class="x-col">item</div>
+        <div class="x-col">item</div>
+        <div class="x-col">item</div>
+        <div class="x-col">item</div>
+      </div>
+      <div class="x-row">
+        <div class="x-col">item</div>
+        <div class="x-col">item</div>
+        <div class="x-col">item</div>
+      </div>
+      <div class="x-row">
+        <div class="x-col">item</div>
+        <div class="x-col">item</div>
+      </div>
+      <div class="x-row">
+        <div class="x-col">item</div>
+        <div class="x-col">item</div>
+      </div>
+    </group>
     <group title="适用场景" padded>
       <p>Flex布局意为弹性布局，所以需要弹性设计的地方，即是最适用Flex 布局的地方。以下场景，优先选择 Flex 布局</p>
       <ul>
         <li>垂直居中，尤其是不定高</li>
         <li>弹性自适应宽度</li>
-        <li></li>
-        <li></li>
       </ul>
     </group>
   </page>
@@ -21,22 +43,33 @@
 
 <script>
 export default {
-  data: function () {
-    return {
-    }
+  data: () => {
+    return {}
   },
   computed: {},
-  ready: function () {
-    console.log(111);
+  ready: () => {
+    console.log(111)
   },
-  attached: function () {},
+  attached: () => {},
   methods: {},
-  components: {}
+  components: {},
 }
 </script>
 
 <style>
-.abc-demo .abc{
+.page-flex .flex{
   margin-right: 0.5rem;
 }
+.page-flex .x-row{
+  display: flex;
+  margin-bottom: 10px;
+}
+.page-flex .x-col{
+  flex: 1 1 auto;
+
+  background: #dedede;
+  text-align: center;
+  border: 1px solid #fff;
+}
+
 </style>

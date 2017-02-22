@@ -15,15 +15,24 @@
   - 编辑器 Atom/VSCode
     - 配置云同步——Settings Sync √
     - 变量跟踪——File Peek √
-    - .eslintrc.js 配置
+    - .eslintrc.js 配置  √
     - .stylelintrc 配置
     - 编辑器直接运行代码——Code Runner √（配饰 stage-0）
   - css 样式属性自动排序（有利于渲染）
 
-- Object: 代码规范
-  - javascript
-  - html
-  - css
+- Object: 代码规范及检测任务
+  - 整理对应规范文档，以及相应的检测任务
+
+```js
+"scripts": {
+  "lint:js": "eslint . --ignore-path .gitignore",
+  "lint:css": "",
+  "lint:html": "",
+  "lint:md": "remark . --quiet --frail",
+  "lint": "npm-run-all --parallel lint:*", // 依赖 npm-run-all
+  "pretest": "npm run lint",
+},
+```
 
 - Object: 框架设计实现
   - view/page 布局展现
@@ -31,11 +40,11 @@
     - 项目级结构精简实现？
   - 定义组件库格式 √
     - 实现10个组件（badge、switch、cell、button、header、tabbar、toolbar、searchbar、slider、field）
-    - src/ 组件相关实现（包含 tpl、css、js data 等）
-    - demo/ demo 使用案例
+    - src/ 组件相关实现（包含 tpl、css、js&data 等）
+    - demo/ 使用示例
     - test/ 单元测试用例
     - index.js 组件输出
-    - index.md 组件功能介绍、需求描述、使用规则、API 参数等（API 参数可以使用 jsDoc 格式输出）
+    - readme.md 组件功能介绍、需求描述、使用规则、API 参数等（API 参数可以使用 jsDoc 格式输出）
   - 文档注释说明（jsDoc 格式要求）
     - jsDoc 格式的详细说明文档及注意事项
   - 定义全局组件调用方式
@@ -67,6 +76,8 @@
   - 构建运行时
   - IOS、android 打包输出
   - 发布
+
+- wss 实时服务
 
 ## 问题
 

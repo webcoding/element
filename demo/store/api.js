@@ -6,12 +6,12 @@ if (api.cachedIds) {
   warmCache()
 }
 
-function warmCache () {
+function warmCache() {
   fetchItems((api.cachedIds.top || []).slice(0, 30))
   setTimeout(warmCache, 1000 * 60 * 15)
 }
 
-function fetch (child) {
+function fetch(child) {
   const cache = api.cachedItems
   if (cache && cache.has(child)) {
     return Promise.resolve(cache.get(child))
@@ -28,25 +28,25 @@ function fetch (child) {
   }
 }
 
-export function fetchIdsByType (type) {
+export function fetchIdsByType(type) {
   return api.cachedIds && api.cachedIds[type]
     ? Promise.resolve(api.cachedIds[type])
     : fetch(`${type}stories`)
 }
 
-export function fetchItem (id) {
+export function fetchItem(id) {
   return fetch(`item/${id}`)
 }
 
-export function fetchItems (ids) {
+export function fetchItems(ids) {
   return Promise.all(ids.map(id => fetchItem(id)))
 }
 
-export function fetchUser (id) {
+export function fetchUser(id) {
   return fetch(`user/${id}`)
 }
 
-export function watchList (type, cb) {
+export function watchList(type, cb) {
   let first = true
   const ref = api.child(`${type}stories`)
   const handler = snapshot => {

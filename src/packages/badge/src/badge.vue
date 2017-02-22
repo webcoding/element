@@ -1,6 +1,7 @@
 <template>
   <span
     class="badge"
+    v-show="!hidden && badgeText"
     :style="styles"
     :class="classes">
     <span v-if="text" class="badge-text">{{badgeText}}</span>
@@ -52,6 +53,7 @@ export default {
       // },
     },
     isDot: Boolean,
+    hidden: Boolean,
     color: String,
     textColor: String,
     shape: {

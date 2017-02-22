@@ -14,14 +14,14 @@
 
 <script>
 /**
- * group-list
- * @module packages/xtag
- * @desc 用于生成指定的 html 标签容器
+ * group
+ * @module packages/group
+ * @desc 分组标签
  * @param {string} [type] - 分组类型
  * @example
- * <group-list>
+ * <group>
  *   ...
- * </group-list>
+ * </group>
  */
 export default {
   name: 'group',

@@ -1,9 +1,9 @@
 <template>
-  <page>
+  <page class="page-badge">
     <div class="page-header">
       <h3>徽章 <small>badge</small></h3>
     </div>
-    <group padded class="badge-demo">
+    <group padded>
       <h4>默认</h4>
       <badge status="todo" text="1"></badge>
       <badge status="doing" text="2"></badge>
@@ -95,7 +95,7 @@ export default {
 </script>
 
 <style>
-.badge-demo .badge{
+.page-badge .badge{
   margin-right: 0.5rem;
 }
 </style>

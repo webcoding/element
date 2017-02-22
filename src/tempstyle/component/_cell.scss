@@ -247,7 +247,7 @@
 
     .badge.is-dot{
       // 定位 采用右对齐(向右偏移100%——自身宽度)
-      transform: translate(40%, -40%);
+      // transform: translate(40%, -40%);
       transform: translate(px2rem(3), px2rem(-3));
     }
 

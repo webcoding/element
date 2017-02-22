@@ -1,30 +1,38 @@
 
 # 构建相关
 
+## 机器与人
+
 > 可维护性第一原则
 
+### 关于注释
+
+> 可读性良好的代码是最好的注释
+
+> 更新代码时，记得更新注释
+
 ```
-TODO, FIXME, CHANGED, XXX, IDEA, HACK, NOTE, REVIEW, NB, BUG, QUESTION, COMBAK, TEMP
-各种代码状态标记
-    FIXME:
-    TODO:
-    CHANGED:
-    XXX:
-    IDEA:
-    HACK:
-    NOTE:
-    REVIEW:
-    BUG:
-    QUESTION:
+各种代码状态标记(默认只有TODO、FIXME和XXX，如何处理在说明中做简略说明)
+    TODO:       有功能代码待编写，待实现的功能要略做说明。
+    FIXME:      代码需要修正，甚至代码是错误的，不能工作，需要修复，如何修正要略做说明。
+    XXX:        虽然实现了功能，但是实现的方法有待商榷，希望将来能改进，如何改进要略做说明。
+    CHANGED:    有更改，什么改动了
+    IDEA:       有新的想法
+    HACK:       一宗 hack 的方法
+    NOTE:       提示、注意
+    REVIEW:     代码评审
+    NB:
+    BUG:        bug 及描述
+    QUESTION:   问题及描述
     COMBAK:
-    TEMP:
+    TEMP:       临时方案
 Bug当前状态 可能值：
-    OPEN:
-    CLOSE:  已经修复，最终状态：关闭
-    REOPEN: 重新打开
+    OPEN:       新开 bug
+    CLOSE:      已经修复，最终状态：关闭
+    REOPEN:     重新打开
 Bug是否已经解决 可能值：
-    INVALID:
-    FIXED:（已修复，待确认）
+    INVALID:    无效的
+    FIXED:      （已修复，待确认）
 ```
 
 
