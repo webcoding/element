@@ -1,5 +1,5 @@
 
-import xTag from './packages/xtag'
+import XTag from './packages/x-tag'
 // import vDebug from './packages/debug'
 import Page from './packages/page'
 import Group from './packages/group'
@@ -12,7 +12,7 @@ import Icon from './packages/icon'
 // import Divider from './packages/divider'
 // import Switch from './packages/switch'
 import Badge from './packages/badge'
-import XHeader from './packages/xheader'
+import XHeader from './packages/x-header'
 // import XHeaderItem from './packages/x-header-item'
 // import TreeItem from './packages/tree-item'
 
@@ -21,13 +21,13 @@ import XHeader from './packages/xheader'
 // import CellSwipe from './packages/cell-swipe'
 import Switch from './packages/switch'
 import Field from './packages/field'
+// import Navbar from './packages/navbar'
+// import Tabbar from './packages/tabbar'
 import SearchBar from './packages/searchbar'
 // import Spinner from './packages/spinner'
 // import TabItem from './packages/tab-item'
 // import TabContainerItem from './packages/tab-container-item'
 // import TabContainer from './packages/tab-container'
-// import Navbar from './packages/navbar'
-// import Tabbar from './packages/tabbar'
 // import Search from './packages/search'
 // import Checklist from './packages/checklist'
 // import Radio from './packages/radio'
@@ -53,7 +53,7 @@ import SearchBar from './packages/searchbar'
 const install = function install(Vue) {
   if (install.installed) return
 
-  Vue.component(xTag.name, xTag)
+  Vue.component(XTag.name, XTag)
   // Vue.component(vDebug.name, vDebug)
   Vue.component(Page.name, Page)
   Vue.component(Group.name, Group)
@@ -108,7 +108,7 @@ export default {
   install,
   version: '1.0.5',
   // Header,
-  xTag,
+  XTag,
   // vDebug,
   Page,
   Group,
@@ -119,13 +119,13 @@ export default {
   Cell,
   // CellSwipe,
   XHeader,
+  // Navbar,
   Field,
   SearchBar,
   // Spinner,
   // TabItem,
   // TabContainerItem,
   // TabContainer,
-  // Navbar,
   // Tabbar,
   // Search,
   // Checklist,

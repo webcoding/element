@@ -1,7 +1,7 @@
 <script>
 /**
  * x-tag
- * @module packages/xtag
+ * @module packages/x-tag
  * @desc 用于生成指定的 html 标签容器
  * @param {string} [tag] - 指定html标签
  * @help 参看 router-link

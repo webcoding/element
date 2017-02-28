@@ -33,7 +33,7 @@
     </group>
 
     <group>
-      <cell :title="'选项 ' + value7">
+      <cell :title="'禁用选项 ' + value7">
         <x-switch disabled v-model="value7" @change="handleChange"></x-switch>
       </cell>
       <cell :title="'选项 ' + value8">

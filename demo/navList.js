@@ -152,9 +152,9 @@ const navList = [
     list: [
       {
         icon: '',
-        link: 'xheader',
-        title: '导航条',
-        small: 'xheader',
+        link: 'x-header',
+        title: '导航栏',
+        small: 'x-header',
         desc: '位于 app 内容区的上方，系统状态栏的下方，并且提供在一系列页面中的导航能力。',
         type: 'bar',
         status: 'doing',
@@ -627,6 +627,7 @@ const navList = [
 
   {
     title: '文档',
+    small: 'Docs',
     list: [
       {
         icon: '',

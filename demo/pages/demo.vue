@@ -5,14 +5,14 @@
       <p>移动端组件库</p>
     </group>
     <div class="group" v-for="group in navs">
-      <div class="group-header" v-text="group.title"></div>
+      <div class="group-header" v-text="`${group.title} ${group.small}`"></div>
       <div class="list">
         <cell
           v-for="item in group.list"
-          :to="item.link"
-          :title="item.title + ' ' + item.small"
+          :to="`/demo/${item.link}`"
+          :title="`${item.title} ${item.small}`"
           is-link>
-          <i solt="media" v-if="item.icon" :class="['iconfont', 'icon-' + item.icon]"></i>
+          <i solt="media" v-if="item.icon" :class="['iconfont', `icon-${item.icon}`]"></i>
           <badge :status="item.status" :text="item.status"></badge>
         </cell>
       </div>

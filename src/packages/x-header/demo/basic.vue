@@ -3,7 +3,9 @@
     <div class="page-header">
       <h3>示例页面 <small>demo</small></h3>
     </div>
-    <x-header></x-header>
+    <x-header>
+      标题
+    </x-header>
   </page>
 </template>
 

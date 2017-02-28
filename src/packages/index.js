@@ -9,13 +9,13 @@ export default [
   'group',
   'icon',
   'page',
+  'x-header',
   'searchbar',
   'switch',
   'badge',
   'field',
   'tabs',
-  'xheader',
-  // 'xtag',
+  // 'x-tag',
 ]
 
 

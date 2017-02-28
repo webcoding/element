@@ -34,7 +34,7 @@ const registerRoute = (config) => {
       if (page.status !== 'todo') {
         // console.log(page.link)
         routes.push({
-          path: `/${page.link}`,
+          path: `/demo/${page.link}`,
           component: isPackage ? require(`../src/packages/${page.link}/demo/basic.vue`) : require(`./pages/${page.link}.vue`),
           name: `demo/${page.link}`,
           meta: {
