@@ -12,7 +12,7 @@ import Icon from './packages/icon'
 // import Divider from './packages/divider'
 // import Switch from './packages/switch'
 import Badge from './packages/badge'
-// import XHeader from './packages/x-header'
+import XHeader from './packages/xheader'
 // import XHeaderItem from './packages/x-header-item'
 // import TreeItem from './packages/tree-item'
 
@@ -63,6 +63,7 @@ const install = function install(Vue) {
   Vue.component(Icon.name, Icon)
   Vue.component(Switch.name, Switch)
   Vue.component(Cell.name, Cell)
+  Vue.component(XHeader.name, XHeader)
   // Vue.component(CellSwipe.name, CellSwipe)
   Vue.component(Field.name, Field)
   Vue.component(SearchBar.name, SearchBar)
@@ -117,6 +118,7 @@ export default {
   Switch,
   Cell,
   // CellSwipe,
+  XHeader,
   Field,
   SearchBar,
   // Spinner,

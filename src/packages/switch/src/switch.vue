@@ -1,7 +1,7 @@
 <template>
   <label class="switch">
     <input class="switch-input" :disabled="disabled" @change="$emit('change', currentValue)" type="checkbox" v-model="currentValue">
-    <span class="switch-core" :style="style" :disabled="disabled"><span v-if="text" class="switch-text" v-text="currentValue ? texts[0] : texts[1]"></span><span class="switch-blank"></span></span>
+    <span class="switch-core" :style="styles" :disabled="disabled"><span v-if="text" class="switch-text" v-text="currentValue ? texts[0] : texts[1]"></span><span class="switch-blank"></span></span>
     <div class="switch-label"><slot></slot></div>
   </label>
 </template>
@@ -67,7 +67,7 @@ export default {
   },
 
   computed: {
-    style () {
+    styles() {
       return [
         this.width ? {width: this.width + 'px'} : {},
       ]

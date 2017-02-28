@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { FRUIT } from '../data'
+import { FRUIT } from '../../data'
 
 export default {
   // name: 'page-search',

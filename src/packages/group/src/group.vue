@@ -31,18 +31,20 @@ export default {
     padded: Boolean,
   },
   computed: {
-    // style () {
+    // styles() {
     //   return [
     //     this.color ? {color: this.color} : {},
     //     this.bg ? {backgroundColor: this.bg} : {},
     //   ]
     // },
-    classes () {
+    classes() {
       return [
         this.type,
-        {
-        'is-padded': this.padded,
-      }]
+        this.padded ? 'is-padded' : '',
+        // {
+        //   'is-padded': this.padded,
+        // },
+      ]
     },
   },
 }

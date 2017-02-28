@@ -7,7 +7,7 @@
       <p>Flex是Flexible Box的缩写，意为"弹性布局"，用来为盒状模型提供最大的灵活性。</p>
       <p class="note"><b>注意</b> 设为Flex布局以后，子元素的float、clear和vertical-align属性将失效。</p>
     </div>
-    <group padded>
+    <group title="示例集合" padded>
       <div class="x-row">
         <div class="x-col">item</div>
       </div>

@@ -14,7 +14,8 @@ const navList = [
   // 分组
   // base form view navigation other
   {
-    title: '排版布局',
+    title: '布局',
+    small: 'Layout',
     list: [
       // {
       //   icon: '',
@@ -146,7 +147,96 @@ const navList = [
   },
 
   {
-    title: '表单',
+    title: '导航',
+    small: 'Navigation',
+    list: [
+      {
+        icon: '',
+        link: 'xheader',
+        title: '导航条',
+        small: 'xheader',
+        desc: '位于 app 内容区的上方，系统状态栏的下方，并且提供在一系列页面中的导航能力。',
+        type: 'bar',
+        status: 'doing',
+      },
+      {
+        icon: '',
+        link: 'navbar',
+        title: '导航栏',
+        small: 'navbar',
+        desc: '位于 app 内容区的上方，系统状态栏的下方，并且提供在一系列页面中的导航能力。',
+        type: 'bar',
+        status: 'todo',
+      },
+      {
+        icon: '',
+        link: 'toolbar',
+        title: '工具栏',
+        small: 'toolbar',
+        desc: '位于 app 底部，方便用户在不同功能模块之间进行快速切换。',
+        type: 'bar',
+        status: 'todo',
+      },
+      {
+        icon: '',
+        link: 'noticebar',
+        title: '通告栏',
+        small: 'noticebar',
+        desc: '在导航栏下方，一般用作系统提醒、活动提醒等通知。',
+        type: 'bar',
+        status: 'todo',
+      },
+      {
+        icon: '',
+        link: 'searchbar',
+        title: '搜索栏',
+        small: 'searchbar',
+        desc: '一般可位于 Navbar 下方，通过『取消按钮』退出激活状态。',
+        type: 'bar',
+        status: 'doing',
+      },
+      {
+        icon: '',
+        link: 'tabbar',
+        title: '标签栏',
+        small: 'tabbar',
+        desc: '方便用户在不同内容模块之间进行快速切换。',
+        type: 'bar',
+        status: 'todo',
+      },
+      {
+        icon: '',
+        link: 'sidebar',
+        title: '侧边栏',
+        small: 'sidebar',
+        desc: '',
+        type: 'bar',
+        status: 'todo',
+      },
+      {
+        icon: '',
+        link: 'preloader',
+        title: '加载指示器',
+        small: 'preloader',
+        desc: '',
+        type: 'bar',
+        status: 'todo',
+      },
+      {
+        icon: '',
+        link: 'progress',
+        title: '进度',
+        small: 'progress',
+        desc: '',
+        type: 'bar',
+        status: 'todo',
+      },
+    ],
+  },
+
+  {
+    title: '数据录入',
+    small: 'Data Entry',
     list: [
       {
         icon: '',
@@ -243,85 +333,8 @@ const navList = [
   },
 
   {
-    title: 'bar',
-    list: [
-      {
-        icon: '',
-        link: 'navbar',
-        title: '导航栏',
-        small: 'navbar',
-        desc: '位于 app 内容区的上方，系统状态栏的下方，并且提供在一系列页面中的导航能力。',
-        type: 'bar',
-        status: 'todo',
-      },
-      {
-        icon: '',
-        link: 'toolbar',
-        title: '工具栏',
-        small: 'toolbar',
-        desc: '位于 app 底部，方便用户在不同功能模块之间进行快速切换。',
-        type: 'bar',
-        status: 'todo',
-      },
-      {
-        icon: '',
-        link: 'noticebar',
-        title: '通告栏',
-        small: 'noticebar',
-        desc: '在导航栏下方，一般用作系统提醒、活动提醒等通知。',
-        type: 'bar',
-        status: 'todo',
-      },
-      {
-        icon: '',
-        link: 'searchbar',
-        title: '搜索栏',
-        small: 'searchbar',
-        desc: '一般可位于 Navbar 下方，通过『取消按钮』退出激活状态。',
-        type: 'bar',
-        status: 'doing',
-      },
-      {
-        icon: '',
-        link: 'tabbar',
-        title: '标签栏',
-        small: 'tabbar',
-        desc: '方便用户在不同内容模块之间进行快速切换。',
-        type: 'bar',
-        status: 'todo',
-      },
-      {
-        icon: '',
-        link: 'sidebar',
-        title: '侧边栏',
-        small: 'sidebar',
-        desc: '',
-        type: 'bar',
-        status: 'todo',
-      },
-      {
-        icon: '',
-        link: 'preloader',
-        title: '加载指示器',
-        small: 'preloader',
-        desc: '',
-        type: 'bar',
-        status: 'todo',
-      },
-      {
-        icon: '',
-        link: 'progress',
-        title: '进度',
-        small: 'progress',
-        desc: '',
-        type: 'bar',
-        status: 'todo',
-      },
-    ],
-  },
-
-  {
-    title: 'picker 选择器',
+    title: '数据展示',
+    small: 'Data Display',
     list: [
       {
         icon: '',
@@ -362,7 +375,8 @@ const navList = [
     ],
   },
   {
-    title: '布局组件',
+    title: '操作反馈',
+    small: 'Feedback',
     list: [
       {
         icon: '',
@@ -585,6 +599,32 @@ const navList = [
       },
     ],
   },
+
+  {
+    title: '手势',
+    small: 'Gesture',
+    list: [
+      {
+        icon: '',
+        link: 'swipe-action',
+        title: '滑动操作',
+        small: 'SwipeAction',
+        desc: '',
+        type: 'extend',
+        status: 'todo',
+      },
+      {
+        icon: '',
+        link: 'refresh-control',
+        title: '下拉刷新',
+        small: 'RefreshControl',
+        desc: '',
+        type: 'extend',
+        status: 'todo',
+      },
+    ],
+  },
+
   {
     title: '文档',
     list: [

@@ -4,20 +4,20 @@
 
 <script>
 /**
- * abc
- * @module packages/abc
+ * tabs
+ * @module packages/tabs
  * @desc 用于生成指定的 html 标签容器
  * @param {string} [tag] - 指定html标签
  * @help 参看 router-link
  * @help https://github.com/vuejs/vue-router/blob/dev/src/components/link.js
  *
  * @example
- * <abc tag="div">
+ * <tabs>
  *   ...
- * </abc>
+ * </tabs>
  */
 export default {
-  name: 'abc',
+  name: 'tabs',
   props: {
     // tag: {
     //   type: String,

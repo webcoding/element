@@ -7,7 +7,7 @@ import { app, router } from './app'
 // state of our application before actually rendering it.
 // Since data fetching is async, this function is expected to
 // return a Promise that resolves to the app instance.
-export default context => {
+export default (context) => {
   // const s = isDev && Date.now()
 
   // set router's location

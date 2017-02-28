@@ -21,7 +21,7 @@ export default {
   data() {
     return {
       isDebug: true,
-      transition: "slide-left"
+      transition: "slide-left",
     }
   },
   watch: {

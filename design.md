@@ -39,7 +39,7 @@
     - 定义 header 和 page 布局如何构建组成，高度问题，页面转场问题
     - 项目级结构精简实现？
   - 定义组件库格式 √
-    - 实现10个组件（badge、switch、cell、button、header、tabbar、toolbar、searchbar、slider、field）
+    - 实现10个组件（详见 task）
     - src/ 组件相关实现（包含 tpl、css、js&data 等）
     - demo/ 使用示例
     - test/ 单元测试用例
@@ -54,6 +54,19 @@
   - 路由规划使用 vue-router
   - 实现组件库对应的 demo 运行示例
   - 实现一个项目示例（实现一个真实业务需求的项目页面）
+
+- Task
+  - badge √
+  - switch √
+  - cell √
+  - header
+  - page
+  - button
+  - field
+  - toolbar
+  - searchbar
+  - slider
+  - tabs
 
 - Object: 测试自动化
   - ESlint 代码格式规范检测 √

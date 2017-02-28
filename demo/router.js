@@ -9,6 +9,7 @@ import index from './pages/index.vue'
 import about from './pages/about.vue'
 
 import navList from './navList'
+import packages from '../src/packages'
 
 Vue.use(Router)
 
@@ -28,12 +29,13 @@ const registerRoute = (config) => {
   const routes = []
   config.map(nav =>
     nav.list.map((page) => {
+      const isPackage = packages.indexOf(page.link) > -1
       // eslint-disable-line global-require
       if (page.status !== 'todo') {
         // console.log(page.link)
         routes.push({
           path: `/${page.link}`,
-          component: require(`./pages/${page.link}.vue`),
+          component: isPackage ? require(`../src/packages/${page.link}/demo/basic.vue`) : require(`./pages/${page.link}.vue`),
           name: `demo/${page.link}`,
           meta: {
             title: `${page.title} ${page.small}`,
