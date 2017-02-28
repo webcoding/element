@@ -1,27 +1,38 @@
 <template>
   <header
-    class="navbar"
+    class="x-header"
     :class="classes">
-    <div class="navbar-left">
-      <slot name="left"></slot>
+    <div class="x-header-left">
+      <slot name="left">
+        <template v-if="header.left" v-for="item in header.left">
+          <x-header-item :text="item.text" link="item.link" :status="item.status" :icon="item.icon" :tag="item.tag"></x-header-item>
+        </template>
+      </slot>
     </div>
-    <div class="navbar-center">
-      <slot></slot>
+    <div class="x-header-center ">
+      <slot>
+        <div class="x-header-title" v-text="title"></div>
+        <div class="x-header-subtitle" v-if="subTitle" v-text="subTitle"></div>
+      </slot>
     </div>
-    <div class="navbar-right">
-      <slot name="right"></slot>
+    <div class="x-header-right">
+      <slot name="right">
+        <template v-if="header.right" v-for="item in header.right">
+          <x-header-item :text="item.text" link="item.link" :status="item.status" :icon="item.icon" :tag="item.tag"></x-header-item>
+        </template>
+      </slot>
     </div>
   </header>
 </template>
 
 <script>
 
-// import xTitle from './x-title'
+import XHeaderItem from './x-header-item.vue'
 
 /**
  * x-header
  * @module packages/x-header
- * @desc 顶部导航
+ * @desc 顶部导航条，标准的 xx xxxxxx xx 弹性布局
  * @param {boolean} [fixed=false] - 固定顶部
  * @param {string} [title] - 默认显示在中间区域，标题
  * @param {slot} [left] - 显示在左侧区域
@@ -38,12 +49,19 @@ export default {
   name: 'x-header',
 
   components: {
-    // xTitle,
+    XHeaderItem,
   },
 
   props: {
-    // fixed: Boolean,
+    header: {
+      type: Object,
+      default: function () {
+        return { }
+      }
+    },
+    fixed: Boolean,
     title: String,
+    subTitle: String,
   },
 
   computed: {
@@ -55,9 +73,72 @@ export default {
     // },
     classes() {
       return [
-        // { 'is-fixed': fixed },
+        { 'is-fixed': this.fixed },
       ]
     },
   },
 }
 </script>
+
+<style lang="sass">
+/*@import "../../../src/style/var.css";*/
+/* @modifier 角色  @descendent 下级元素  @when 状态 */
+/* 如果使用扩展，就要支持并写 @modifier left,@modifier right{} */
+.x-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ddd;
+  height: 44px;
+
+  &.is-fixed {
+    position: fixed 0 0 * 0;
+    z-index: 10;
+  }
+  &-center {
+    margin: 0 10px;
+    align-items: center;
+    overflow: hidden;
+    text-align: center;
+  }
+  &-left,
+  &-right {
+    width: 88px;
+    overflow: hidden;
+    background: #eee;
+    flex-shrink: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    &::before {
+      content: '';
+      width: 4px;
+    }
+  }
+  &-right {
+    justify-content: flex-end;
+    // flex-direction: row-reverse;
+  }
+  &-item {
+    width: 42px;
+    background: #ccc;
+    text-align: center;
+    line-height: 4;
+  }
+  &-title,
+  &-subtitle {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-size: inherit;
+    font-weight: normal;
+    font-size: 16px;
+  }
+  &-subtitle {
+    margin-top: -2px;
+    font-size: 12px;
+  }
+}
+</style>

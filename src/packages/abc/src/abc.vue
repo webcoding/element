@@ -45,3 +45,30 @@ export default {
   },
 }
 </script>
+
+<style lang="css">
+/*@import "../../../src/style/var.css";*/
+@component-namespace x- {
+  @component abc {
+    @descendent button {
+
+      @when left {
+
+      }
+      @when left {
+
+      }
+    }
+    @descendent title {
+      @utils-ellipsis;
+      font-size: inherit;
+      font-weight: normal;
+      flex: 1;
+    }
+    @when fixed {
+      position: fixed 0 0 * 0;
+      z-index: $z-index-normal;
+    }
+  }
+}
+</style>

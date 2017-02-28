@@ -1,13 +1,13 @@
 module.exports = {
   // bump deps, ignore whitespace
   preserveWhitespace: false,
-  // postcss: [
+  postcss: [
     // postcss-cssnext 已经包含了 autoprefixer
     // require('autoprefixer')({
     //   browsers: ['last 3 versions']
     // }),
 
-    // require('postcss-salad'),
+    require('postcss-salad'),
     // require('postcss-at-rules-variables'),
     // // atIf 应用 if else 语句
     // require('postcss-conditionals'),
@@ -57,7 +57,7 @@ module.exports = {
     // require('postcss-transform-shortcut'),
     // An on-demand calc() based grid building system. div { lost-column: 1/2 };
     // require('lost'),
-  // ]
+  ]
 }
 
 
