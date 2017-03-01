@@ -43,6 +43,9 @@ var clientEntry = {
 module.exports = {
   devtool: '#source-map',
   entry: clientEntry,
+  stats: {
+    colors: true //显示不同的颜色区分打包的文件
+  },
   // 怎样存储输出结果以及存储到哪里
   output: {
     // path: path.resolve(__dirname, '../dist'),
@@ -129,11 +132,11 @@ module.exports = {
     // // 别名字段：描述文件中的这些字段提供了该包的别名对照关系。
     // // 这些字段的内容是一个对象，每当请求某个键名时，就会映射到对应的键值。
     // aliasFields: ["browser"],
-    //
-    // // These extensions are tried when resolving a file
-    // // 扩展名：在解析一个文件时，将会尝试附加这些文件扩展名。
-    // extensions: [".js", ".json", ".vue"],
-    //
+
+    // These extensions are tried when resolving a file
+    // 扩展名：在解析一个文件时，将会尝试附加这些文件扩展名。
+    extensions: [".js", ".json", ".vue"],
+
     // // If false it will also try to use no extension from above
     // // 强制使用扩展名：如果值为 false，在解析一个文件时，也会尝试匹配无扩展名的文件。
     // enforceExtension: false,
@@ -153,7 +156,8 @@ module.exports = {
       // 'src': path.resolve(__dirname, '../src'),
       // 'assets': path.resolve(__dirname, '../src/assets'),
       // 'components': path.resolve(__dirname, '../src/components'),
-      'public': path.resolve(__dirname, '../public'),
+      public: path.resolve(__dirname, '../public'),
+      store: path.resolve('src/store'), //常用工具方法
       // jquery: path.resolve(__dirname, "vendor/jquery-2.0.0.js")
     }
   },
@@ -178,6 +182,7 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'buble-loader',
+        // loader: 'babel-loader',
         exclude: /node_modules/,
         options: {
           objectAssign: 'Object.assign'

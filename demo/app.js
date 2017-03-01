@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 // import Demos from './Demos.vue'
-// import store from './store'
+import store from './store'
 import router from './router'
 // import { sync } from 'vuex-router-sync'
 import * as filters from './filters'
@@ -23,12 +23,26 @@ Object.keys(filters).forEach((key) => {
   Vue.filter(key, filters[key])
 })
 
+
+// 权限检测
+router.beforeEach(({ meta, path }, from, next) => {
+  const { auth = false } = meta
+
+  // true 用户已登录， false用户未登录
+  const isLogin = Boolean(store.state.userId)
+
+  if (auth && !isLogin && path !== '/login') {
+    return next({ path: '/login' })
+  }
+  next()
+})
+
 // create the app instance.
 // here we inject the router and store to all child components,
 // making them available everywhere as `this.$router` and `this.$store`.
 const app = new Vue(Vue.util.extend({
   router,
-  // store,
+  store,
 }, App))
 
 // let indexScrollTop = 0

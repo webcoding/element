@@ -50,6 +50,12 @@ import SearchBar from './packages/searchbar'
 // import PaletteButton from './packages/palette-button'
 // import './src/assets/font/iconfont.css'
 
+
+// Object.keys(components).forEach((key) => {
+//     var name = key.replace(/(\w)/, (v) => v.toUpperCase()) //首字母大写
+//     Vue.component(`v${name}`, components[key])
+// })
+
 const install = function install(Vue) {
   if (install.installed) return
 

@@ -17,8 +17,9 @@
       <router-link class="x-header-item" to="/" slot="right">首页</router-link>
     </x-header>
 
-    <x-header :header="header" title="仅通过数据自动生成 header"></x-header>
+    <x-header :header="header" title="通过数据自动生成 header"></x-header>
 
+    <p>TODO:还需要支持 header 位置限制下拉选择、tab 切换、搜索框等功能</p>
   </page>
 </template>
 

@@ -6,7 +6,9 @@ import error500 from './components/500.vue'
 
 import demo from './pages/demo.vue'
 import index from './pages/index.vue'
-import about from './pages/about.vue'
+// import about from './pages/about.vue'
+import login from './pages/login.vue'
+// import user from './pages/user.vue'
 
 import navList from './navList'
 import packages from '../src/packages'
@@ -52,7 +54,7 @@ const registerRoute = (config) => {
 
 const routes = registerRoute(navList)
 
-export default new Router({
+const router = new Router({
   // 使用 history 模式（默认 hash）
   // 以下 #后移的事情，比如微信分享等情况下 会变成，而且多次分享，多个参数叠加，太恶心了
   // http://10.0.1.167:8080/?from=singlemessage&isappinstalled=0#/top?from=singlemessage&isappinstalled=0）
@@ -63,7 +65,18 @@ export default new Router({
   routes: routes.concat([
     { path: '/index', name: 'index', component: index },
     { path: '/demo', name: 'demo', component: demo },
-    { path: '/about', name: 'about', component: about },
+    { path: '/login', name: 'login', component: login },
+    {
+      path: '/user',
+      name: 'user',
+      meta: { auth: true },
+      component: resolve => require(['./pages/user.vue'], resolve),
+    },
+    {
+      path: '/about',
+      name: 'about',
+      component: resolve => require(['./pages/about.vue'], resolve),
+    },
     { path: '/', name: 'root', redirect: '/index' },
     { path: '/500', name: 'error', component: error500 },
     { path: '/*', name: 'default', component: error404 },
@@ -91,3 +104,5 @@ export default new Router({
   //   { path: '/*', component: error404 },
   // ],
 })
+
+export default router

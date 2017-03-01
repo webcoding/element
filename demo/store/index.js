@@ -1,23 +1,31 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import user from './user'
 // import { fetchItems, fetchIdsByType, fetchUser } from './api'
 
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
-  // state: {
-  //   activeType: null,
-  //   itemsPerPage: 20,
-  //   items: {/* [id: number]: Item */},
-  //   users: {/* [id: string]: User */},
-  //   lists: {
-  //     top: [/* number */],
-  //     new: [],
-  //     show: [],
-  //     ask: [],
-  //     job: [],
-  //   },
-  // },
+  // 在非生产环境下，使用严格模式
+  // strict: process.env.NODE_ENV !== 'production',
+
+  state: {
+    activeType: null,
+    itemsPerPage: 20,
+    items: {/* [id: number]: Item */},
+    users: {/* [id: string]: User */},
+    lists: {
+      top: [/* number */],
+      new: [],
+      show: [],
+      ask: [],
+      job: [],
+    },
+  },
+
+  modules: {
+    user,
+  },
 
   // actions: {
   //   // ensure data for rendering given list type
