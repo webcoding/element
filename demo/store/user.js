@@ -5,16 +5,19 @@ export const USER_SIGNIN = 'USER_SIGNIN' // 登录成功
 export const USER_SIGNOUT = 'USER_SIGNOUT' // 退出登录
 
 // const sessionStorage = window.sessionStorage
+let tempUser
 
 export default {
   // state: JSON.parse(sessionStorage.getItem('user')) || {},
-  state: {},
+  state: tempUser || {},
   mutations: {
     [USER_SIGNIN](state, user) {
+      tempUser = user
       // sessionStorage.setItem('user', JSON.stringify(user))
       Object.assign(state, user)
     },
     [USER_SIGNOUT](state) {
+      tempUser = {}
       // sessionStorage.removeItem('user')
       Object.keys(state).forEach(k => Vue.delete(state, k))
     },

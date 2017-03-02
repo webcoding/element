@@ -5,23 +5,23 @@ import user from './user'
 
 Vue.use(Vuex)
 
-const store = new Vuex.Store({
+export default new Vuex.Store({
   // 在非生产环境下，使用严格模式
   // strict: process.env.NODE_ENV !== 'production',
 
-  state: {
-    activeType: null,
-    itemsPerPage: 20,
-    items: {/* [id: number]: Item */},
-    users: {/* [id: string]: User */},
-    lists: {
-      top: [/* number */],
-      new: [],
-      show: [],
-      ask: [],
-      job: [],
-    },
-  },
+  // state: {
+  //   activeType: null,
+  //   itemsPerPage: 20,
+  //   items: {/* [id: number]: Item */},
+  //   users: {/* [id: string]: User */},
+  //   lists: {
+  //     top: [/* number */],
+  //     new: [],
+  //     show: [],
+  //     ask: [],
+  //     job: [],
+  //   },
+  // },
 
   modules: {
     user,
@@ -105,4 +105,3 @@ const store = new Vuex.Store({
   // }
 })
 
-export default store

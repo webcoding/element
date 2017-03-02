@@ -36,16 +36,17 @@ export default {
   },
 
   methods: {
-    // ...mapActions([USER_SIGNIN]),
+    ...mapActions([USER_SIGNIN]),
 
     submitLogin() {
       this.btn = true
-      if (!this.form.id || !this.form.name) {
-        return this.USER_SIGNIN(this.form)
-      }
+
+      if (!this.form.id || !this.form.name) return
+
+      this.USER_SIGNIN(this.form)
 
       this.$router.replace({
-        path: '/user'
+        path: '/user',
       })
     },
   },

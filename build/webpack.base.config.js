@@ -2,7 +2,7 @@ const path = require('path')
 const vueConfig = require('./vue-loader.config')
 // 引入插件
 const vConsolePlugin = require('vconsole-webpack-plugin');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 // const vConsole = require('vconsole');
 // 接收运行参数(这里要支持参数精简化)
@@ -83,13 +83,13 @@ module.exports = {
     // }),
     // 全局引入 jquery 等插件，不需要每次使用时 import
     // new webpack.ProvidePlugin({
-    //   $: "jquery",
-    //   jQuery: "jquery",
-    //   "window.jQuery": "jquery",
-    //   "_": "underscore",
+    //   $: 'jquery',
+    //   jQuery: 'jquery',
+    //   'window.jQuery': 'jquery',
+    //   '_': 'underscore',
     // }),
     // new CleanWebpackPlugin(['dist'], {
-    //   root: '', // An absolute path for the root  of webpack.config.js
+    //   root: ', // An absolute path for the root  of webpack.config.js
     //   verbose: true,// Write logs to console.
     //   dry: false // Do not delete anything, good for testing.
     // }),
@@ -109,33 +109,33 @@ module.exports = {
     // // 绝对路径会直接查找。
     // // 将按你指定的顺序查找。
     modules: [
-      path.resolve(__dirname, "src"),
-      "node_modules",
+      path.resolve(__dirname, 'src'),
+      'node_modules',
     ],
-    // // root: path.join(__dirname, "src"),
+    // // root: path.join(__dirname, 'src'),
     // // fallback: [path.join(__dirname, '../node_modules')],
     //
     // // These JSON files are read in directories
     // // 描述文件：这些 JSON 文件将在目录中被读取。
-    // descriptionFiles: ["package.json", "bower.json"],
+    // descriptionFiles: ['package.json', 'bower.json'],
     //
     // // These fields in the description files are looked up when trying to resolve the package directory
     // // 入口字段：在解析一个包目录时，描述文件中的这些字段所指定的文件将被视为包的入口文件。
-    // mainFields: ["main", "browser"],
+    // mainFields: ['main', 'browser'],
     //
     // // These files are tried when trying to resolve a directory
     // // 入口文件：在解析一个目录时，这些文件将被视为目录的入口文件。
-    // mainFiles: ["index"],
+    // mainFiles: ['index'],
     //
     // // These fields in the description files offer aliasing in this package
     // // The content of these fields is an object where requests to a key are mapped to the corresponding value
     // // 别名字段：描述文件中的这些字段提供了该包的别名对照关系。
     // // 这些字段的内容是一个对象，每当请求某个键名时，就会映射到对应的键值。
-    // aliasFields: ["browser"],
+    // aliasFields: ['browser'],
 
     // These extensions are tried when resolving a file
     // 扩展名：在解析一个文件时，将会尝试附加这些文件扩展名。
-    extensions: [".js", ".json", ".vue"],
+    extensions: ['.js', '.json', '.vue', '.css'],
 
     // // If false it will also try to use no extension from above
     // // 强制使用扩展名：如果值为 false，在解析一个文件时，也会尝试匹配无扩展名的文件。
@@ -143,7 +143,7 @@ module.exports = {
     //
     // // These extensions are tried when resolving a module
     // // 模块后缀名：在解析一个模块名时，将会尝试附加这些后缀名。
-    // moduleExtensions: ["-loader"],
+    // moduleExtensions: ['-loader'],
     //
     // // If false it's also try to use no module extension from above
     // // 强制使用模块后缀名：如果值为 false，在解析一个模块名时，也会尝试匹配不包含后缀名的模块。
@@ -157,8 +157,8 @@ module.exports = {
       // 'assets': path.resolve(__dirname, '../src/assets'),
       // 'components': path.resolve(__dirname, '../src/components'),
       public: path.resolve(__dirname, '../public'),
-      store: path.resolve('src/store'), //常用工具方法
-      // jquery: path.resolve(__dirname, "vendor/jquery-2.0.0.js")
+      // store: path.resolve('src/store'), //常用工具方法
+      // jquery: path.resolve(__dirname, 'vendor/jquery-2.0.0.js')
     }
   },
   module: {
@@ -167,40 +167,50 @@ module.exports = {
     rules: [
       // {
       //   test: /\.js$/,
-      //   enforce: "pre",
-      //   loader: "eslint-loader"
+      //   enforce: 'pre',
+      //   loader: 'eslint-loader'
       // },
       {
         test: /\.vue$/,
-        use: [
-          {
-            loader: 'vue-loader',
-            options: vueConfig,
-          }
-        ],
+        loader: 'vue-loader',
+        // use: [
+        //   {
+        //     loader: 'vue-loader',
+        //     // options: vueConfig,
+        //   }
+        // ],
       },
       {
-        test: /\.js$/,
-        loader: 'buble-loader',
+        test: /\.jsx?$/,
+        loader: 'babel-loader',
         // loader: 'babel-loader',
         exclude: /node_modules/,
-        options: {
-          objectAssign: 'Object.assign'
-        }
+        // exclude: path.resolve(__dirname, '/node_modules/'),
+        // options: {
+        //   presets: [
+        //     // 'flow-vue',
+        //     'stage-0',
+        //     'es2015'
+        //   ],
+        //   plugins: [
+        //     // 'syntax-dynamic-import',
+        //     'transform-vue-jsx'
+        //   ],
+        // }
       },
       // {
       //   test: /\.scss$/,
       //   use: ExtractTextPlugin.extract({
-      //     fallback: "style-loader",
-      //     use: "css-loader"
+      //     fallback: 'style-loader',
+      //     use: 'css-loader'
       //   })
       // },
       {
         test: /\.css$/,
         use: [
-          "style-loader",
-          "css-loader",
-          "sass-loader",
+          'style-loader',
+          'css-loader',
+          'sass-loader',
         ],
       },
       // 图片 loader

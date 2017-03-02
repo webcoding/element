@@ -35,7 +35,7 @@ export default {
   },
   methods: {
     checkDirecition(to, from) {
-      let map = ["index", "demo", "about", "login", "component"].reverse();
+      let map = ["index", "demo", "about", "login", "component", "user"].reverse();
       // 不存在为 -1，设置默认匹配小于零，对应 slide-left
       return (map.indexOf(to) - map.indexOf(from)) < 0;
     }

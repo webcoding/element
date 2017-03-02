@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import store from './store'
 
 import error404 from './components/404.vue'
 import error500 from './components/500.vue'
@@ -69,7 +70,7 @@ const router = new Router({
     {
       path: '/user',
       name: 'user',
-      meta: { auth: true },
+      meta: { requiresAuth: true },
       component: resolve => require(['./pages/user.vue'], resolve),
     },
     {
@@ -103,6 +104,30 @@ const router = new Router({
   //   { path: '/', redirect: '/index' },
   //   { path: '/*', component: error404 },
   // ],
+})
+
+
+// 权限检测
+// router.beforeEach((to, from, next) => {
+//   if (to.matched.some(record => record.meta.requiresAuth)) {
+//   }
+// }
+router.beforeEach(({ meta, path }, from, next) => {
+  const { requiresAuth = false } = meta
+
+  // true 用户已登录， false用户未登录
+  const isLogin = Boolean(store.state.user.id)
+
+  // if (!auth.loggedIn()) {
+  //   next({
+  //     path: '/login',
+  //     query: { redirect: to.fullPath }
+  //   })
+  // }
+  if (requiresAuth && !isLogin && path !== '/login') {
+    return next({ path: '/login' })
+  }
+  next()
 })
 
 export default router

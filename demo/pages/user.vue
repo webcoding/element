@@ -4,9 +4,9 @@
       <h3>用户中心 <small>user</small></h3>
     </div>
     <group padded>
-      访问此页面需要登录权限，如果未登录，你不能访问。
+      <p>{{user.name}} 你好，</p>
 
-      <button v-on:click="submitLogout">注销</button>
+      你可以选择：<button @click="goBack">返回</button> / <button @click="submitLogout">注销</button>
     </group>
   </page>
 </template>
@@ -37,10 +37,13 @@ export default {
   },
   attached: function () {},
   methods: {
-    // ...mapActions([USER_SIGNOUT]),
+    ...mapActions([USER_SIGNOUT]),
 
+    goBack() {
+      this.$router.back()
+    },
     submitLogout() {
-      // this.USER_SIGNOUT()
+      this.USER_SIGNOUT()
       this.$router.replace({ path: '/login' })
     }
   },
