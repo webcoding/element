@@ -40,6 +40,7 @@ var clientEntry = {
 // 编译完自动打开浏览器
 // var OpenBrowserPlugin = require('open-browser-webpack-plugin');
 
+// 配置参考：https://webpack.vuefe.cn/configuration/
 module.exports = {
   devtool: '#source-map',
   entry: clientEntry,
