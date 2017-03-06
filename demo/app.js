@@ -5,8 +5,19 @@ import store from './store/index'
 import router from './router'
 // import { sync } from 'vuex-router-sync'
 import * as filters from './filters'
+// import FastClick from 'fastclick';
 
 import vueUI from '../src/index'
+
+// 错误统计
+import Raven from 'raven-js'
+import RavenVue from 'raven-js/plugins/vue'
+Raven
+  .config('https://37695669ab8e4d0688819f320de4a73a@sentry.io/144523')
+  .addPlugin(RavenVue, Vue)
+  .install()
+
+
 // 注入组件库
 Vue.use(vueUI)
 
@@ -14,6 +25,7 @@ Vue.use(vueUI)
 // this registers `store.state.route`
 // sync(store, router)
 
+// FastClick.attach(document.body);
 // document.addEventListener('DOMContentLoaded', function() {
 //   if (window.FastClick) window.FastClick.attach(document.body);
 // }, false);
@@ -32,25 +44,6 @@ const app = new Vue(Vue.util.extend({
   router,
   store,
 }, App))
-
-// let indexScrollTop = 0
-// router.beforeEach((route, redirect, next) => {
-//   if (route.path !== '/') {
-//     indexScrollTop = document.body.scrollTop
-//   }
-//   document.title = route.meta.title || document.title
-//   next()
-// })
-//
-// router.afterEach(route => {
-//   if (route.path !== '/') {
-//     document.body.scrollTop = 0
-//   } else {
-//     Vue.nextTick(() => {
-//       document.body.scrollTop = indexScrollTop
-//     })
-//   }
-// })
 
 // expose the app, the router and the store.
 // note we are not mounting the app here, since bootstrapping will be

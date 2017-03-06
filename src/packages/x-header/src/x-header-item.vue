@@ -2,6 +2,7 @@
   <router-link
     class="x-header-item"
     :to="link"
+    @click.prevent="handleClick"
     :tag="tag">
     <i v-if="icon" :class="['iconfont', `icon-${icon}`]"></i>
     <badge :status="status"></badge>
@@ -10,6 +11,9 @@
 </template>
 
 <script>
+
+const noop = function(){}
+
 /**
  * x-header-item
  * @module packages/x-header-item
@@ -32,6 +36,7 @@ export default {
     icon: String,
     status: String,
     text: String,
+    callback: Function,
   },
 
   computed: {
@@ -46,6 +51,12 @@ export default {
     //     { 'is-fixed': this.fixed },
     //   ]
     // },
+  },
+
+  methods: {
+    handleClick() {
+      return this.callback ? this.callback : noop;
+    },
   },
 }
 </script>

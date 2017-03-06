@@ -20,7 +20,7 @@ export function timeAgo(time) {
     // 因为位运算的操作值要求是整数，其结果也是整数，所以经过位运算的都会自动变成整数
     // 出了 ~~n 外，n<<0 n>>0 n|0 都可以取整
     return pluralize(~~(between / 60), ' minute')
-  } else if (between < 86400) {
+  }else if (between < 86400) {
     return pluralize(~~(between / 3600), ' hour')
   }
   return pluralize(~~(between / 86400), ' day')

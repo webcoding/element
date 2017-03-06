@@ -9,7 +9,7 @@ import demo from './pages/demo.vue'
 import index from './pages/index.vue'
 // import about from './pages/about.vue'
 import login from './pages/login.vue'
-// import user from './pages/user.vue'
+import list from './pages/list.vue'
 
 import navList from './navList'
 import packages from '../src/packages'
@@ -37,7 +37,7 @@ const registerRoute = (config) => {
       if (page.status !== 'todo') {
         // console.log(page.link)
         routes.push({
-          path: `/demo/${page.link}`,
+          path: `${page.link}`,
           component: isPackage ? require(`../src/packages/${page.link}/demo/basic.vue`) : require(`./pages/${page.link}.vue`),
           name: `demo/${page.link}`,
           meta: {
@@ -53,7 +53,7 @@ const registerRoute = (config) => {
   return routes
 }
 
-const routes = registerRoute(navList)
+const componentRoutes = registerRoute(navList)
 
 const router = new Router({
   // 使用 history 模式（默认 hash）
@@ -61,11 +61,24 @@ const router = new Router({
   // http://10.0.1.167:8080/?from=singlemessage&isappinstalled=0#/top?from=singlemessage&isappinstalled=0）
   // 如果不是 history 模式的话，经过客户端js运行之后会变成 http://localhost:3000/foo/#!/（经测试暂时没遇到）
   mode: 'history',
+  // base: '',
   // 记住页面的滚动位置，仅 history 模式适用(浏览器返回，系统会自动记住处理)
   scrollBehavior: () => ({ y: 0 }),
-  routes: routes.concat([
+  routes: [
     { path: '/index', name: 'index', component: index },
-    { path: '/demo', name: 'demo', component: demo },
+    {
+      path: '/demo',
+      // 使用默认子路由，则父路由的 name 就得去掉
+      name: '',
+      component: demo,
+
+      // 否则使用 `:to="{name: 'demo'"` 会导致默认子路由不会render
+      children: [{
+        path: '/',
+        name: 'list',
+        component: list,
+      }].concat(componentRoutes),
+    },
     { path: '/login', name: 'login', component: login },
     {
       path: '/user',
@@ -81,7 +94,7 @@ const router = new Router({
     { path: '/', name: 'root', redirect: '/index' },
     { path: '/500', name: 'error', component: error500 },
     { path: '/*', name: 'default', component: error404 },
-  ]),
+  ],
   // routes: [
   //   { path: '/index', component: index },
   //   { path: '/demo', component: demo },
@@ -106,28 +119,47 @@ const router = new Router({
   // ],
 })
 
+const auth = {
+  loggedIn() {
+    return Boolean(store.state.user.id)
+  },
+}
 
+const loginPath = '/login'
+// let indexScrollTop = 0
 // 权限检测
-// router.beforeEach((to, from, next) => {
-//   if (to.matched.some(record => record.meta.requiresAuth)) {
-//   }
-// }
-router.beforeEach(({ meta, path }, from, next) => {
+router.beforeEach((to, from, next) => {
+  const { meta, path } = to
   const { requiresAuth = false } = meta
 
-  // true 用户已登录， false用户未登录
-  const isLogin = Boolean(store.state.user.id)
-
-  // if (!auth.loggedIn()) {
-  //   next({
-  //     path: '/login',
-  //     query: { redirect: to.fullPath }
-  //   })
-  // }
-  if (requiresAuth && !isLogin && path !== '/login') {
-    return next({ path: '/login' })
+  // if (to.matched.some(record => record.meta.requiresAuth)) {
+  if (requiresAuth && !auth.loggedIn() && path !== loginPath) {
+    // this route requires auth, check if logged in
+    // if not, redirect to login page.
+    return next({
+      path: loginPath,
+      query: { redirect: to.fullPath },
+    })
   }
-  next()
+
+  // 默认就会记录滚动位置，不做处理
+  // if (path !== '/') {
+  //   indexScrollTop = document.body.scrollTop
+  // }
+  // document.title = meta.title || document.title
+
+  // 确保一定要调用 next()
+  return next()
 })
+
+// router.afterEach(to => {
+//   if (to.path !== '/') {
+//     document.body.scrollTop = 0
+//   }else {
+//     Vue.nextTick(() => {
+//       document.body.scrollTop = indexScrollTop
+//     })
+//   }
+// })
 
 export default router

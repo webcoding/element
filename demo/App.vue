@@ -24,6 +24,7 @@ export default {
       transition: "slide-left",
     }
   },
+
   watch: {
     "$route"(to, from){
       // 默认使用 'slide-left' 如果使用的是 back（暂判断不出来），也使用 slide-left

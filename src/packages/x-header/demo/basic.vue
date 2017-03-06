@@ -33,6 +33,7 @@ export default {
         left: [
           {
             text: '返回',
+            link: '/',
           },
         ],
         right: [

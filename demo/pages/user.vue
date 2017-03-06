@@ -6,7 +6,9 @@
     <group padded>
       <p>{{user.name}} 你好，</p>
 
-      你可以选择：<button @click="goBack">返回</button> / <button @click="submitLogout">注销</button>
+      你可以选择：<button v-on:click="goBack">返回</button> / <button @click="submitLogout">注销</button>
+
+      返回也可以这样写：<button @click="$router.back()">返回</button>
     </group>
   </page>
 </template>

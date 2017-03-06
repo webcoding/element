@@ -5,7 +5,7 @@
     <div class="x-header-left">
       <slot name="left">
         <template v-if="header.left" v-for="item in header.left">
-          <x-header-item :text="item.text" link="item.link" :status="item.status" :icon="item.icon" :tag="item.tag"></x-header-item>
+          <x-header-item :text="item.text" :link="item.link" :status="item.status" :icon="item.icon" :tag="item.tag" :callback="item.callback"></x-header-item>
         </template>
       </slot>
     </div>
@@ -18,7 +18,7 @@
     <div class="x-header-right">
       <slot name="right">
         <template v-if="header.right" v-for="item in header.right">
-          <x-header-item :text="item.text" link="item.link" :status="item.status" :icon="item.icon" :tag="item.tag"></x-header-item>
+          <x-header-item :info="header.right" :link="item.link" :status="item.status" :icon="item.icon" :tag="item.tag" :callback="item.callback"></x-header-item>
         </template>
       </slot>
     </div>
